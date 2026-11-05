@@ -55,6 +55,9 @@ web/
     test/            # configuración de tests
 docs/
   AI_Learning_Fase_1_Especificacion.md
+  PLAN_IMPLEMENTACION.md
+  Entrega_1_Implementacion.md
+  README.md
 ```
 
 ## Diseño de contenido
@@ -63,7 +66,10 @@ Las dos lecciones piloto se modelan mediante `Lesson` en `web/src/data/lessons.t
 
 ## Documentación
 
-[Especificación de la Fase 1](docs/AI_Learning_Fase_1_Especificacion.md)
+- **[Plan integral de implementación y roadmap](docs/PLAN_IMPLEMENTACION.md)** — fuente principal de alcance, temario, laboratorios, entregas y criterios de aceptación.
+- [Índice documental](docs/README.md) — navegación de los documentos.
+- [Especificación de la Fase 1](docs/AI_Learning_Fase_1_Especificacion.md) — diseño pedagógico, rutas y componentes.
+- [Entrega 1: MVP piloto](docs/Entrega_1_Implementacion.md) — estado de la implementación.
 
 ## Publicación
 

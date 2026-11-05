@@ -1,6 +1,8 @@
 # Entrega 1 — MVP navegable de IA Fundamentals
 
-**Estado:** implementación inicial pendiente de validación CI en el repositorio.
+**Estado:** implementación técnica publicada y CI exitoso; validación visual, accesibilidad y prueba pedagógica manual pendientes.
+
+**CI verificado:** [GitHub Actions — ejecución exitosa](https://github.com/lucasjaviluna/ia-fundamentals/actions/runs/41958459514).
 
 ## Incluye
 
@@ -32,6 +34,8 @@ npm run build
 ```
 
 La automatización ejecuta estos pasos en GitHub Actions. Deben revisarse también el resultado visual, el uso en un proyector, accesibilidad y funcionamiento sin red una vez cargado el sitio.
+
+**Plan de continuidad:** [Plan integral de implementación](./PLAN_IMPLEMENTACION.md).
 
 ## Próximo hito
 
