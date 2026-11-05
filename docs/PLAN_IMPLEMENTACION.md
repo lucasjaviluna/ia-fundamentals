@@ -120,7 +120,7 @@ El repaso debe funcionar en dos modalidades: en lectura, selección y feedback; 
 | 10 | Agentes y workflows | **Intermedio.** Modelo, tools, estado, bucles de ejecución, decisiones y aprobación humana | Trazas planificar → actuar → observar → validar | **Disponible** |
 | 11 | Agent Skills | **Intermedio.** Instrucciones reutilizables, recursos, activación contextual, `SKILL.md` | Skill que guía la revisión de un cambio de código | **Disponible** |
 | 12 | MCP | **Intermedio.** Host, cliente, servidor, tools, resources y prompts | Explorador visual; cliente/servidor real pendiente en el taller | **Disponible** |
-| 13 | Embeddings, chunks y RAG | **Básico + intermedio.** Vectores, chunks, búsqueda lexical/semántica, recuperación y uso en prompts | Recuperar fragmentos de un corpus pequeño, mostrar fuentes y ranking | Pendiente |
+| 13 | Embeddings, chunks y RAG | **Básico + intermedio.** Vectores, chunks, búsqueda lexical/semántica, recuperación y uso en prompts | Recuperar fragmentos de un corpus pequeño, mostrar fuentes y ranking | **Disponible** |
 
 **Diferencias importantes a enseñar:** un agente no es simplemente un prompt largo; una Skill orienta instrucciones, MCP conecta recursos/herramientas, y RAG recupera contexto. Son mecanismos complementarios y no equivalentes.
 
@@ -130,7 +130,7 @@ El repaso debe funcionar en dos modalidades: en lectura, selección y feedback; 
 
 | # | Tema | Profundidad y explicación prevista | Demostración | Estado |
 |---|---|---|---|---|
-| 14 | Seguridad y buenas prácticas | **Básico.** Privacidad, permisos, secretos, prompt injection, datos no confiables | Documento con instrucción maliciosa simulada y mitigación comentada | Pendiente |
+| 14 | Seguridad y buenas prácticas | **Básico.** Privacidad, permisos, secretos, prompt injection, datos no confiables | Documento con instrucción maliciosa simulada y mitigación comentada | **Disponible** |
 | 15 | Evaluación y guardrails | **Intermedio.** Casos de prueba, criterios, resultados, aprobaciones humanas y trazabilidad | Evaluar respuestas frente a criterios definidos | Pendiente |
 | 16 | IA aplicada al SDLC | **Intermedio + taller.** Historia de usuario → análisis → código → tests → revisión | Demo integradora con validación humana | Pendiente |
 
@@ -151,7 +151,7 @@ Cada demo incluye título, objetivo, tipo de ejecución, datos de entrada, contr
 | **Tool/Agent Visualizer** | Inspeccionar argumentos, llamada, respuesta y siguiente decisión | Trazas locales; sin ejecución autónoma sobre datos reales | **E2: implementado** |
 | **Skills Explorer** | Ver una skill, cuándo se aplica y qué instrucciones contiene | Recorrido guiado ficticio; fichero real pendiente en taller | **E2: implementado** |
 | **MCP Explorer** | Descubrir tools/resources y observar mensajes | Simulación en web; servidor real pendiente en laboratorio local | **E2: implementado** |
-| **RAG Explorer** | Ver documentos, chunks, búsqueda y contexto seleccionado | Corpus pequeño; ranking explicado; implementación avanzada en taller | E2/E3 |
+| **RAG Explorer** | Ver documentos, chunks, búsqueda y contexto seleccionado | Corpus ficticio y ranking léxico; implementación avanzada pendiente en taller | **E2: implementado** |
 | **Evaluation Explorer** | Revisar respuestas según una rúbrica | Evaluación local ilustrativa y tests reales opcionales | E2/E3 |
 
 ### Etiquetas innegociables
@@ -197,9 +197,9 @@ Una demo principal debe funcionar en el navegador **sin depender de una API**. C
 |---|---|---|
 | `/` | Portada, propuesta y accesos | E1: disponible |
 | `/curso` | Mapa de bloques, temas y progreso | E1: disponible |
-| `/curso/:slug` | Lección interactiva completa | E1/E2: doce slugs disponibles |
+| `/curso/:slug` | Lección interactiva completa | E1/E2: catorce slugs disponibles |
 | `/presentar/:slug` | Presentación por pasos de una lección | E1: disponible |
-| `/labs/:slug` | Demo ampliada | E1/E2: doce laboratorios disponibles |
+| `/labs/:slug` | Demo ampliada | E1/E2: catorce laboratorios disponibles |
 | `/glosario` | Definiciones breves | E1: disponible |
 
 ### UX base
@@ -336,7 +336,7 @@ Cada directorio incluirá cuando se implemente:
 
 **Objetivo:** entregar una charla completa y ensayable, no solo un índice.
 
-- [ ] Incorporar las 4 lecciones faltantes (primero los segmentos que formen `intro-90`).
+- [ ] Incorporar las 2 lecciones faltantes (primero los segmentos que formen `intro-90`).
 - [ ] Desarrollar las demos de clasificación de IA, prompting, contexto, tools/agentes, Skills, MCP y RAG, más seguridad y evaluación.
 - [ ] Implementar recorrido `intro-90` como selección de pasos del catálogo, con progreso temporal/navegación clara.
 - [ ] Añadir notas de presentador, ejemplos cotidianos, respuestas razonadas y conclusiones por tema.
@@ -452,7 +452,8 @@ Cada directorio incluirá cuando se implemente:
 | Lecciones 09 y 10 — Tools y agentes | **Implementadas** |
 | Lecciones 11 y 12 — Skills y MCP | **Implementadas** |
 | Lección 08 — Modelos, APIs y multimodalidad | **Implementada** |
-| Otras 4 lecciones | **Pendientes** |
+| Lecciones 13 y 14 — RAG y seguridad | **Implementadas** |
+| Otras 2 lecciones | **Pendientes** |
 | Recorrido integrado de 90 minutos | **Pendiente** |
 | Directorios `labs/` con código y soluciones | **Pendientes** |
 | Test e2e y publicación validada | **Pendientes** |
