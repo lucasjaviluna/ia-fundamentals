@@ -8,8 +8,8 @@ describe('catálogo de lecciones', () => {
     expect(new Set(catalog.map((topic) => topic.number)).size).toBe(16);
   });
 
-  it('publica cuatro lecciones completas y navegables', () => {
-    expect(lessons).toHaveLength(4);
+  it('publica cinco lecciones completas y navegables', () => {
+    expect(lessons).toHaveLength(5);
     for (const lesson of lessons) {
       expect(lessonBySlug(lesson.slug)).toBe(lesson);
       expect(lesson.steps).toHaveLength(6);

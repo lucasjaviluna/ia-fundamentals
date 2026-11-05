@@ -203,6 +203,28 @@ export const lessons: Lesson[] = [
     ],
     takeaways: ['Un token no equivale necesariamente a una palabra.', 'La tokenización convierte texto en IDs específicos de una codificación.', 'El conteo de tokens influye en el uso y los límites de contexto.'],
   },
+  {
+    id: 'prompts', slug: 'prompts-y-ejemplos', number: 5, block: 2, level: 'Básico', minutes: 12,
+    title: 'Prompts y ejemplos', question: '¿Cómo puedo pedir una respuesta que se ajuste mejor a lo que necesito?',
+    description: 'Aprendé a formular instrucciones claras, aportar contexto y comparar ejemplos sin depender de una API.',
+    keyIdea: 'Un prompt comunica una tarea y su contexto; indicar restricciones, formato y ejemplos puede orientar la respuesta, pero no garantiza su calidad.',
+    labSlug: 'prompt-playground',
+    resources: [{ title: 'Introducción al diseño de prompts · Google', url: 'https://developers.google.com/machine-learning/resources/prompt-eng', description: 'Principios y ejemplos para diseñar instrucciones (en inglés).' }],
+    steps: [
+      { id: 'definicion', kind: 'concept', eyebrow: '01 · La idea', title: 'Una instrucción con contexto', description: 'Un prompt es la entrada que le proporcionamos a un modelo. Puede incluir una tarea, información de referencia, restricciones y un formato de salida.', bullets: ['Tarea: qué necesitás.', 'Contexto: para quién y con qué información.', 'Restricciones y formato: qué límites y estructura querés.'], presenterNote: 'Pedir al público una instrucción ambigua y preguntar qué información falta.' },
+      { id: 'analogia', kind: 'analogy', eyebrow: '02 · Analogía', title: 'Como un encargo claro', description: 'Pedir «prepará una presentación» deja muchas decisiones abiertas. Agregar público, objetivo y duración ayuda a orientar el trabajo. La analogía no implica que un modelo entienda como una persona.' },
+      { id: 'proceso', kind: 'process', eyebrow: '03 · El recorrido', title: 'De la tarea a una respuesta evaluable', description: 'Definí la tarea, agregá el contexto necesario, indicá restricciones y formato, y revisá el resultado. Podés iterar si no cumple el objetivo.', bullets: ['Zero-shot: pedir la tarea sin ejemplos.', 'Few-shot: incluir algunos ejemplos de la salida deseada.', 'En ambos casos verificá hechos y adecuación.'], presenterNote: 'Explicar que los ejemplos orientan el patrón esperado, no aseguran una respuesta correcta.' },
+      { id: 'demo', kind: 'demo', eyebrow: '04 · Experimentá', title: 'Compará dos instrucciones', description: 'Elegí un caso y compará una instrucción abierta con otra más específica y sus respuestas ilustrativas preparadas.', presenterNote: 'Pedir al público que identifique qué información se agregó y qué aún habría que comprobar.' },
+      { id: 'limites', kind: 'warning', eyebrow: '05 · Un límite importante', title: 'Un buen prompt no garantiza verdad', description: 'Una instrucción clara reduce ambigüedades, pero el modelo puede equivocarse o ignorar restricciones. Revisá la respuesta, contrastá datos importantes y evitá incluir información sensible innecesaria.', bullets: ['Más largo no siempre significa más claro.', 'No confundas formato correcto con información verificada.'] },
+      { id: 'repaso', kind: 'quiz', eyebrow: '06 · Repaso', title: '¿Qué hace útil a una instrucción?', description: 'Respondé tres preguntas sobre contexto, ejemplos y revisión.', presenterNote: 'Invitar al público a justificar su elección antes de revelar la explicación.' },
+    ],
+    quiz: [
+      { id: 'prompt-1', question: '¿Qué aporta el contexto a un prompt?', options: [{ id: 'a', label: 'Información relevante sobre la tarea y el público' }, { id: 'b', label: 'Garantiza que la respuesta sea verdadera' }], correctId: 'a', explanation: 'El contexto orienta la respuesta, pero no sustituye la verificación.' },
+      { id: 'prompt-2', question: '¿Qué significa few-shot?', options: [{ id: 'a', label: 'Incluir algunos ejemplos en la instrucción' }, { id: 'b', label: 'Usar siempre una sola palabra' }], correctId: 'a', explanation: 'Few-shot aporta ejemplos que muestran el patrón esperado.' },
+      { id: 'prompt-3', question: '¿Qué hacer con una respuesta bien presentada?', options: [{ id: 'a', label: 'Verificar sus datos y evaluar si cumple la tarea' }, { id: 'b', label: 'Asumir que es correcta por su formato' }], correctId: 'a', explanation: 'La buena presentación no garantiza exactitud ni cumplimiento de todos los requisitos.' },
+    ],
+    takeaways: ['Indicá la tarea y el contexto necesario.', 'Las restricciones, el formato y los ejemplos ayudan a orientar la respuesta.', 'Revisá resultados y datos importantes antes de usarlos.'],
+  },
 ];
 
 export const lessonBySlug = (slug: string): Lesson | undefined => lessons.find((lesson) => lesson.slug === slug);
@@ -226,7 +248,7 @@ export const catalog: CatalogTopic[] = [
   { number: 2, title: '¿Qué es un LLM?', block: 1, minutes: 10, slug: 'que-es-un-llm' },
   { number: 3, title: '¿Cómo funciona un LLM?', block: 1, minutes: 10, slug: 'como-funciona-un-llm' },
   { number: 4, title: 'Tokens y tokenización', block: 1, minutes: 8, slug: 'tokens-y-tokenizacion' },
-  { number: 5, title: 'Prompts y ejemplos', block: 2, minutes: 12 },
+  { number: 5, title: 'Prompts y ejemplos', block: 2, minutes: 12, slug: 'prompts-y-ejemplos' },
   { number: 6, title: 'Contexto y memoria', block: 2, minutes: 8 },
   { number: 7, title: 'Confiabilidad y alucinaciones', block: 2, minutes: 8 },
   { number: 8, title: 'Modelos y APIs', block: 2, minutes: 8 },

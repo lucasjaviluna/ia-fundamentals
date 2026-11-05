@@ -1,3 +1,4 @@
+import { PromptPlayground } from '../demos/prompt-playground/PromptPlayground';
 import { LLMFlow } from '../demos/llm-flow/LLMFlow';
 import { AIClassifier } from '../demos/ai-classifier/AIClassifier';
 import { lazy, Suspense } from 'react';
@@ -11,7 +12,7 @@ const TokenizerExplorer = lazy(async () => {
 });
 
 export function LessonDemo({ lesson }: { lesson: Lesson }) {
-  return lesson.id === 'funcionamiento-llm' ? <LLMFlow /> : lesson.id === 'mapa-ia' ? <AIClassifier /> : lesson.id === 'llm'
+  return lesson.id === 'prompts' ? <PromptPlayground /> : lesson.id === 'funcionamiento-llm' ? <LLMFlow /> : lesson.id === 'mapa-ia' ? <AIClassifier /> : lesson.id === 'llm'
     ? <NextTokenSimulator />
     : <Suspense fallback={<p className="demo-loading">Preparando el laboratorio…</p>}><TokenizerExplorer /></Suspense>;
 }
