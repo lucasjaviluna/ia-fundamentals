@@ -108,7 +108,7 @@ El repaso debe funcionar en dos modalidades: en lectura, selección y feedback; 
 | 05 | Prompts y prompt engineering | **Básico + práctico.** Instrucciones, contexto, restricciones, formato, zero-shot y few-shot | Comparador de ejemplos preparados | **Disponible** |
 | 06 | Ventana de contexto y memoria | **Básico.** Tokens de entrada/salida, límites, historial, compactación, pérdida de contexto y memoria externa | Medidor visual de espacio disponible | **Disponible** |
 | 07 | Confiabilidad y alucinaciones | **Básico.** Respuestas plausibles pero erróneas, incertidumbre, variación, temperatura | Comparación ilustrativa de afirmaciones y evidencia ficticia | **Disponible** |
-| 08 | Modelos, APIs y multimodalidad | **Básico + intermedio.** Chat vs API, parámetros, request/response, texto, imagen, audio | Petición JSON simulada y ejemplo opcional de API desde Node.js | Pendiente |
+| 08 | Modelos, APIs y multimodalidad | **Básico + intermedio.** Chat vs API, parámetros, request/response, texto, imagen, audio | Petición JSON simulada; ejemplo real opcional pendiente en el taller | **Disponible** |
 
 **Nivel que se busca:** escribir un prompt claro, distinguir instrucciones de contexto y entender por qué las respuestas deben revisarse.
 
@@ -118,8 +118,8 @@ El repaso debe funcionar en dos modalidades: en lectura, selección y feedback; 
 |---|---|---|---|---|
 | 09 | Tools y function calling | **Intermedio.** Descripción de herramientas, argumentos, resultado y límites | Solicitud `getOrderStatus(id)` y retorno de datos ficticios | **Disponible** |
 | 10 | Agentes y workflows | **Intermedio.** Modelo, tools, estado, bucles de ejecución, decisiones y aprobación humana | Trazas planificar → actuar → observar → validar | **Disponible** |
-| 11 | Agent Skills | **Intermedio.** Instrucciones reutilizables, recursos, activación contextual, `SKILL.md` | Skill que guía la revisión de un cambio de código | Pendiente |
-| 12 | MCP | **Intermedio.** Host, cliente, servidor, tools, resources y prompts | Explorador visual + cliente/servidor MCP real en el taller | Pendiente |
+| 11 | Agent Skills | **Intermedio.** Instrucciones reutilizables, recursos, activación contextual, `SKILL.md` | Skill que guía la revisión de un cambio de código | **Disponible** |
+| 12 | MCP | **Intermedio.** Host, cliente, servidor, tools, resources y prompts | Explorador visual; cliente/servidor real pendiente en el taller | **Disponible** |
 | 13 | Embeddings, chunks y RAG | **Básico + intermedio.** Vectores, chunks, búsqueda lexical/semántica, recuperación y uso en prompts | Recuperar fragmentos de un corpus pequeño, mostrar fuentes y ranking | Pendiente |
 
 **Diferencias importantes a enseñar:** un agente no es simplemente un prompt largo; una Skill orienta instrucciones, MCP conecta recursos/herramientas, y RAG recupera contexto. Son mecanismos complementarios y no equivalentes.
@@ -149,8 +149,8 @@ Cada demo incluye título, objetivo, tipo de ejecución, datos de entrada, contr
 | **Context Meter** | Visualizar ocupación de contexto y exceso hipotético | Simulación local con límite ficticio | **E2: implementado** |
 | **Reliability Explorer** | Contrastar respuestas y comprobar evidencias | Casos ficticios con explicación | **E2: implementado** |
 | **Tool/Agent Visualizer** | Inspeccionar argumentos, llamada, respuesta y siguiente decisión | Trazas locales; sin ejecución autónoma sobre datos reales | **E2: implementado** |
-| **Skills Explorer** | Ver una skill, cuándo se aplica y qué instrucciones contiene | Recorrido guiado; fichero real en taller | E2/E3 |
-| **MCP Explorer** | Descubrir tools/resources y observar mensajes | Simulación en web, servidor real en laboratorio local | E2/E3 |
+| **Skills Explorer** | Ver una skill, cuándo se aplica y qué instrucciones contiene | Recorrido guiado ficticio; fichero real pendiente en taller | **E2: implementado** |
+| **MCP Explorer** | Descubrir tools/resources y observar mensajes | Simulación en web; servidor real pendiente en laboratorio local | **E2: implementado** |
 | **RAG Explorer** | Ver documentos, chunks, búsqueda y contexto seleccionado | Corpus pequeño; ranking explicado; implementación avanzada en taller | E2/E3 |
 | **Evaluation Explorer** | Revisar respuestas según una rúbrica | Evaluación local ilustrativa y tests reales opcionales | E2/E3 |
 
@@ -197,9 +197,9 @@ Una demo principal debe funcionar en el navegador **sin depender de una API**. C
 |---|---|---|
 | `/` | Portada, propuesta y accesos | E1: disponible |
 | `/curso` | Mapa de bloques, temas y progreso | E1: disponible |
-| `/curso/:slug` | Lección interactiva completa | E1/E2: nueve slugs disponibles |
+| `/curso/:slug` | Lección interactiva completa | E1/E2: doce slugs disponibles |
 | `/presentar/:slug` | Presentación por pasos de una lección | E1: disponible |
-| `/labs/:slug` | Demo ampliada | E1/E2: nueve laboratorios disponibles |
+| `/labs/:slug` | Demo ampliada | E1/E2: doce laboratorios disponibles |
 | `/glosario` | Definiciones breves | E1: disponible |
 
 ### UX base
@@ -336,7 +336,7 @@ Cada directorio incluirá cuando se implemente:
 
 **Objetivo:** entregar una charla completa y ensayable, no solo un índice.
 
-- [ ] Incorporar las 7 lecciones faltantes (primero los segmentos que formen `intro-90`).
+- [ ] Incorporar las 4 lecciones faltantes (primero los segmentos que formen `intro-90`).
 - [ ] Desarrollar las demos de clasificación de IA, prompting, contexto, tools/agentes, Skills, MCP y RAG, más seguridad y evaluación.
 - [ ] Implementar recorrido `intro-90` como selección de pasos del catálogo, con progreso temporal/navegación clara.
 - [ ] Añadir notas de presentador, ejemplos cotidianos, respuestas razonadas y conclusiones por tema.
@@ -450,7 +450,9 @@ Cada directorio incluirá cuando se implemente:
 | Lección 06 — Contexto y memoria | **Implementada** |
 | Lección 07 — Confiabilidad y alucinaciones | **Implementada** |
 | Lecciones 09 y 10 — Tools y agentes | **Implementadas** |
-| Otras 7 lecciones | **Pendientes** |
+| Lecciones 11 y 12 — Skills y MCP | **Implementadas** |
+| Lección 08 — Modelos, APIs y multimodalidad | **Implementada** |
+| Otras 4 lecciones | **Pendientes** |
 | Recorrido integrado de 90 minutos | **Pendiente** |
 | Directorios `labs/` con código y soluciones | **Pendientes** |
 | Test e2e y publicación validada | **Pendientes** |
