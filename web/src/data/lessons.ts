@@ -225,6 +225,28 @@ export const lessons: Lesson[] = [
     ],
     takeaways: ['Indicá la tarea y el contexto necesario.', 'Las restricciones, el formato y los ejemplos ayudan a orientar la respuesta.', 'Revisá resultados y datos importantes antes de usarlos.'],
   },
+  {
+    id: 'contexto', slug: 'contexto-y-memoria', number: 6, block: 2, level: 'Básico', minutes: 8,
+    title: 'Ventana de contexto y memoria', question: '¿Por qué una conversación larga puede perder información?',
+    description: 'Explorá el espacio disponible para entrada y salida, y distinguí el contexto inmediato de la memoria externa.',
+    keyIdea: 'La ventana de contexto limita la información que puede procesarse en una interacción; una memoria externa requiere que la aplicación recupere e incluya información relevante.',
+    labSlug: 'medidor-contexto',
+    resources: [{ title: 'Introducción a los modelos de lenguaje · Google', url: 'https://developers.google.com/machine-learning/crash-course/llm', description: 'Explicación sobre contexto y modelos de lenguaje (disponible en varios idiomas).' }],
+    steps: [
+      { id: 'definicion', kind: 'concept', eyebrow: '01 · La idea', title: 'El espacio de una interacción', description: 'La ventana de contexto es el límite de tokens que un modelo puede manejar en una interacción. Las instrucciones, el historial y la información aportada ocupan espacio; la respuesta también necesita presupuesto de salida.', bullets: ['Los límites y el cómputo exacto dependen del modelo y la aplicación.', 'Un token no equivale siempre a una palabra.'], presenterNote: 'Preguntar qué información de una conversación necesita tener disponible el modelo para responder.' },
+      { id: 'analogia', kind: 'analogy', eyebrow: '02 · Analogía', title: 'Una mesa de trabajo limitada', description: 'Imaginá una mesa donde colocás instrucciones, notas y una hoja para la respuesta. Cuando falta espacio hay que decidir qué retirar o resumir. Es una analogía, no una descripción literal del funcionamiento interno.' },
+      { id: 'proceso', kind: 'process', eyebrow: '03 · El recorrido', title: 'Seleccionar, responder y recuperar', description: 'La aplicación prepara instrucciones e historial, reserva espacio para la respuesta y envía lo que cabe. Si utiliza memoria externa, debe recuperar información y volver a incluirla en el contexto.', bullets: ['Entrada: instrucciones, mensajes y datos aportados.', 'Salida: tokens disponibles para la respuesta.', 'Compactación: una aplicación puede reemplazar parte del historial por una representación más breve, como un resumen, para liberar espacio.', 'Ejemplo: «El informe vence el viernes y debe excluir datos personales» puede compactarse como «Preparar el informe para el viernes»; se perdió la restricción de privacidad.', 'Memoria externa: información guardada y recuperada por la aplicación; no es lo mismo que compactar el historial.'], presenterNote: 'Comparar el ejemplo original con el resumen y preguntar qué detalle se perdió. Explicar que la compactación depende de la aplicación y que una memoria guardada no está necesariamente presente en cada solicitud.' },
+      { id: 'demo', kind: 'demo', eyebrow: '04 · Experimentá', title: 'Distribuí el contexto', description: 'Ajustá cantidades ficticias de instrucciones, historial y salida para observar cuándo se supera el presupuesto.', presenterNote: 'Mostrar que recuperar información también consume espacio de entrada.' },
+      { id: 'limites', kind: 'warning', eyebrow: '05 · Un límite importante', title: 'No hay una política universal de recorte', description: 'Cuando se supera un límite, una aplicación puede rechazar la solicitud, recortar mensajes o resumirlos. La estrategia depende de su implementación; la compactación puede omitir o distorsionar detalles y no equivale necesariamente a guardar una memoria externa.', bullets: ['Guardar información no garantiza que se recupere en el momento adecuado.', 'La presencia de un dato en contexto no garantiza que se utilice correctamente.'] },
+      { id: 'repaso', kind: 'quiz', eyebrow: '06 · Repaso', title: '¿Qué cabe en el contexto?', description: 'Comprobá cómo se relacionan entrada, salida y memoria.', presenterNote: 'Preguntar cómo conservar un dato importante cuando el historial crece.' },
+    ],
+    quiz: [
+      { id: 'ctx-1', question: '¿Qué puede ocupar la ventana de contexto?', options: [{ id: 'a', label: 'Instrucciones, historial y espacio para salida' }, { id: 'b', label: 'Solo el último mensaje' }], correctId: 'a', explanation: 'La interacción puede incluir instrucciones e historial, además del presupuesto necesario para generar salida.' },
+      { id: 'ctx-2', question: '¿Una memoria externa guardada está siempre visible para el modelo?', options: [{ id: 'a', label: 'Sí, automáticamente' }, { id: 'b', label: 'No, la aplicación debe recuperarla y aportarla' }], correctId: 'b', explanation: 'Para influir en una solicitud, la información recuperada debe incluirse de alguna manera en el contexto disponible.' },
+      { id: 'ctx-3', question: '¿Qué riesgo tiene compactar el historial mediante un resumen?', options: [{ id: 'a', label: 'Puede perder u omitir detalles importantes' }, { id: 'b', label: 'Garantiza conservar cada detalle original' }], correctId: 'a', explanation: 'Una representación más breve puede liberar espacio, pero perder detalles; la política depende de la aplicación y no equivale necesariamente a memoria externa.' },
+    ],
+    takeaways: ['Entrada y salida comparten un presupuesto limitado según el modelo y la aplicación.', 'La aplicación decide cómo manejar un historial que supera el límite.', 'La memoria externa debe recuperarse y aportarse cuando sea relevante.'],
+  },
 ];
 
 export const lessonBySlug = (slug: string): Lesson | undefined => lessons.find((lesson) => lesson.slug === slug);
@@ -249,7 +271,7 @@ export const catalog: CatalogTopic[] = [
   { number: 3, title: '¿Cómo funciona un LLM?', block: 1, minutes: 10, slug: 'como-funciona-un-llm' },
   { number: 4, title: 'Tokens y tokenización', block: 1, minutes: 8, slug: 'tokens-y-tokenizacion' },
   { number: 5, title: 'Prompts y ejemplos', block: 2, minutes: 12, slug: 'prompts-y-ejemplos' },
-  { number: 6, title: 'Contexto y memoria', block: 2, minutes: 8 },
+  { number: 6, title: 'Contexto y memoria', block: 2, minutes: 8, slug: 'contexto-y-memoria' },
   { number: 7, title: 'Confiabilidad y alucinaciones', block: 2, minutes: 8 },
   { number: 8, title: 'Modelos y APIs', block: 2, minutes: 8 },
   { number: 9, title: 'Tools y function calling', block: 3, minutes: 10 },

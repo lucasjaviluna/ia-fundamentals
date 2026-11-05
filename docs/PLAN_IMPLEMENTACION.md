@@ -106,7 +106,7 @@ El repaso debe funcionar en dos modalidades: en lectura, selección y feedback; 
 | # | Tema | Profundidad y explicación prevista | Demostración | Estado |
 |---|---|---|---|---|
 | 05 | Prompts y prompt engineering | **Básico + práctico.** Instrucciones, contexto, restricciones, formato, zero-shot y few-shot | Comparador de ejemplos preparados | **Disponible** |
-| 06 | Ventana de contexto y memoria | **Básico.** Tokens de entrada/salida, límites, historial, pérdida de contexto y memoria externa | Medidor visual de espacio disponible | Pendiente |
+| 06 | Ventana de contexto y memoria | **Básico.** Tokens de entrada/salida, límites, historial, compactación, pérdida de contexto y memoria externa | Medidor visual de espacio disponible | **Disponible** |
 | 07 | Confiabilidad y alucinaciones | **Básico.** Respuestas plausibles pero erróneas, incertidumbre, variación, temperatura | Comparación ilustrativa de respuestas y verificación de una afirmación | Pendiente |
 | 08 | Modelos, APIs y multimodalidad | **Básico + intermedio.** Chat vs API, parámetros, request/response, texto, imagen, audio | Petición JSON simulada y ejemplo opcional de API desde Node.js | Pendiente |
 
@@ -146,7 +146,7 @@ Cada demo incluye título, objetivo, tipo de ejecución, datos de entrada, contr
 | **Tokenizer Explorer** | Cambiar texto, idioma, signos, emojis; visualizar tokens/IDs | **Ejecución local** con `js-tiktoken`, `cl100k_base` | **E1: implementado** |
 | **AI Concept Classifier** | Clasificar ejemplos según tipo de IA | Simulación didáctica local | **E2: implementado** |
 | **Prompt Playground** | Comparar prompt inicial y prompt mejorado | Casos preparados y reproducibles | **E2: implementado** |
-| **Context Meter** | Visualizar ocupación de contexto y recorte hipotético | Simulación local con límites declarados | E2 |
+| **Context Meter** | Visualizar ocupación de contexto y exceso hipotético | Simulación local con límite ficticio | **E2: implementado** |
 | **Reliability Explorer** | Contrastar respuestas y comprobar evidencias | Respuestas precargadas con explicación | E2 |
 | **Tool/Agent Visualizer** | Inspeccionar argumentos, llamada, respuesta y siguiente decisión | Trazas locales; sin ejecución autónoma sobre datos reales | E2 |
 | **Skills Explorer** | Ver una skill, cuándo se aplica y qué instrucciones contiene | Recorrido guiado; fichero real en taller | E2/E3 |
@@ -197,9 +197,9 @@ Una demo principal debe funcionar en el navegador **sin depender de una API**. C
 |---|---|---|
 | `/` | Portada, propuesta y accesos | E1: disponible |
 | `/curso` | Mapa de bloques, temas y progreso | E1: disponible |
-| `/curso/:slug` | Lección interactiva completa | E1/E2: cinco slugs disponibles |
+| `/curso/:slug` | Lección interactiva completa | E1/E2: seis slugs disponibles |
 | `/presentar/:slug` | Presentación por pasos de una lección | E1: disponible |
-| `/labs/:slug` | Demo ampliada | E1/E2: cinco laboratorios disponibles |
+| `/labs/:slug` | Demo ampliada | E1/E2: seis laboratorios disponibles |
 | `/glosario` | Definiciones breves | E1: disponible |
 
 ### UX base
@@ -336,7 +336,7 @@ Cada directorio incluirá cuando se implemente:
 
 **Objetivo:** entregar una charla completa y ensayable, no solo un índice.
 
-- [ ] Incorporar las 11 lecciones faltantes (primero los segmentos que formen `intro-90`).
+- [ ] Incorporar las 10 lecciones faltantes (primero los segmentos que formen `intro-90`).
 - [ ] Desarrollar las demos de clasificación de IA, prompting, contexto, tools/agentes, Skills, MCP y RAG, más seguridad y evaluación.
 - [ ] Implementar recorrido `intro-90` como selección de pasos del catálogo, con progreso temporal/navegación clara.
 - [ ] Añadir notas de presentador, ejemplos cotidianos, respuestas razonadas y conclusiones por tema.
@@ -447,7 +447,8 @@ Cada directorio incluirá cuando se implemente:
 | Lección 01 — Mapa de la IA y clasificador | **Implementados** |
 | Lección 03 — Cómo funciona un LLM | **Implementada** |
 | Lección 05 — Prompts y ejemplos | **Implementada** |
-| Otras 11 lecciones | **Pendientes** |
+| Lección 06 — Contexto y memoria | **Implementada** |
+| Otras 10 lecciones | **Pendientes** |
 | Recorrido integrado de 90 minutos | **Pendiente** |
 | Directorios `labs/` con código y soluciones | **Pendientes** |
 | Test e2e y publicación validada | **Pendientes** |
