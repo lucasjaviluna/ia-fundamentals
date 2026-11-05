@@ -33,9 +33,33 @@ export type Lesson = {
   steps: LessonStep[];
   quiz: QuizQuestion[];
   takeaways: string[];
+  resources?: { title: string; url: string; description: string }[];
 };
 
 export const lessons: Lesson[] = [
+  {
+    id: 'mapa-ia', slug: 'mapa-de-la-ia', number: 1, block: 1, level: 'Básico', minutes: 5,
+    title: 'Mapa de la IA', question: '¿Toda inteligencia artificial aprende de datos o genera contenido?',
+    description: 'Distinguí inteligencia artificial, aprendizaje automático, aprendizaje profundo e IA generativa con ejemplos cotidianos.',
+    keyIdea: 'La IA reúne diversas técnicas; machine learning aprende de datos, deep learning usa redes neuronales profundas y la IA generativa produce contenido nuevo.',
+    labSlug: 'clasificador-ia',
+    resources: [{ title: 'Introducción a machine learning · Google', url: 'https://developers.google.com/machine-learning/intro-to-ml', description: 'Curso introductorio sobre aprendizaje automático (disponible en varios idiomas).' }],
+    steps: [
+      { id: 'definicion', kind: 'concept', eyebrow: '01 · La idea', title: 'Cuatro conceptos relacionados', description: 'La inteligencia artificial (IA) es un campo amplio. El aprendizaje automático o machine learning (ML) es una forma de construir sistemas que aprenden patrones a partir de datos.', bullets: ['Deep learning es una familia de métodos de ML basada en redes neuronales con múltiples capas.', 'La IA generativa se define por su capacidad de generar contenido; muchos sistemas actuales usan deep learning.'], presenterNote: 'Preguntar qué ejemplos de IA conoce el público antes de mostrar las categorías.' },
+      { id: 'analogia', kind: 'analogy', eyebrow: '02 · Analogía', title: 'Un mapa de familias y capacidades', description: 'Imaginá un mapa: IA es un territorio amplio; ML es una región dentro de él y deep learning una zona de ML. Generar contenido describe una capacidad, no una región idéntica a deep learning.', bullets: ['La analogía simplifica un campo con fronteras y enfoques que evolucionan.', 'Un sistema puede pertenecer a varias categorías a la vez.'] },
+      { id: 'recorrido', kind: 'process', eyebrow: '03 · El recorrido', title: 'De la técnica a la aplicación', description: 'Un equipo puede usar datos de correos para entrenar un filtro de spam, o una red neuronal profunda para generar texto. Ambos son aplicaciones de IA, pero cumplen tareas distintas.', bullets: ['IA: resolver tareas mediante técnicas de inteligencia artificial.', 'ML: aprender patrones de datos; deep learning: utilizar redes profundas.', 'Generativa: crear contenido como texto o imágenes.'], presenterNote: 'Señalar que un filtro de spam clasifica; no necesita generar contenido.' },
+      { id: 'demo', kind: 'demo', eyebrow: '04 · Experimentá', title: 'Clasificá casos cotidianos', description: 'Elegí la categoría que mejor describe la característica indicada en cada caso y recibí una explicación.', presenterNote: 'Invitar al público a elegir y explicar que las categorías pueden superponerse.' },
+      { id: 'limites', kind: 'warning', eyebrow: '05 · Un límite importante', title: 'Las categorías no son casilleros exclusivos', description: 'Un generador de imágenes moderno puede ser IA, ML, deep learning e IA generativa al mismo tiempo. También hay sistemas de IA basados en reglas que no aprenden de datos.', bullets: ['Generar contenido no garantiza que sea correcto.', 'La etiqueta por sí sola no revela cómo se construyó un sistema.'] },
+      { id: 'repaso', kind: 'quiz', eyebrow: '06 · Repaso', title: '¿Cómo se relacionan estas ideas?', description: 'Respondé tres preguntas para comprobar el mapa.', presenterNote: 'Dar tiempo al público para responder antes de revelar la explicación.' },
+    ],
+    quiz: [
+      { id: 'map-1', question: '¿Qué caracteriza al machine learning?', options: [{ id: 'a', label: 'Aprender patrones a partir de datos' }, { id: 'b', label: 'Generar siempre imágenes' }, { id: 'c', label: 'Seguir exclusivamente reglas escritas a mano' }], correctId: 'a', explanation: 'El aprendizaje automático utiliza datos para ajustar modelos; no se limita a generar imágenes.' },
+      { id: 'map-2', question: '¿Cómo se relaciona deep learning con ML?', options: [{ id: 'a', label: 'Es una familia de métodos de ML' }, { id: 'b', label: 'Es independiente de ML' }, { id: 'c', label: 'Es sinónimo de cualquier programa' }], correctId: 'a', explanation: 'Deep learning emplea redes neuronales con múltiples capas y pertenece al aprendizaje automático.' },
+      { id: 'map-3', question: '¿Un generador de imágenes puede pertenecer a varias categorías?', options: [{ id: 'a', label: 'Sí, las categorías pueden superponerse' }, { id: 'b', label: 'No, solo puede ser IA generativa' }], correctId: 'a', explanation: 'Un generador construido con redes profundas también puede describirse como deep learning, ML e IA.' },
+    ],
+    takeaways: ['La IA abarca múltiples técnicas, incluidas algunas que no aprenden de datos.', 'Deep learning es un tipo de machine learning.', 'La IA generativa describe una capacidad y puede superponerse con otras categorías.'],
+  },
+
   {
     id: 'llm',
     slug: 'que-es-un-llm',
@@ -48,6 +72,7 @@ export const lessons: Lesson[] = [
     description: 'Comprendé qué hace un modelo de lenguaje, cómo genera respuestas y por qué también puede equivocarse.',
     keyIdea: 'Un LLM es un modelo entrenado con grandes cantidades de datos que genera contenido prediciendo tokens según el contexto.',
     labSlug: 'next-token',
+    resources: [{ title: 'Introducción a los modelos de lenguaje · Google', url: 'https://developers.google.com/machine-learning/crash-course/llm', description: 'Una explicación de modelos de lenguaje, contexto y sus límites (disponible en varios idiomas).' }],
     steps: [
       {
         id: 'definicion', kind: 'concept', eyebrow: '01 · La idea',
@@ -109,6 +134,7 @@ export const lessons: Lesson[] = [
     description: 'Descubrí cómo se divide el texto, qué son los IDs de tokens y por qué los conteos varían entre codificaciones.',
     keyIdea: 'Los modelos procesan unidades llamadas tokens; una palabra puede producir uno o varios, según el tokenizador.',
     labSlug: 'tokenizer',
+    resources: [{ title: 'Tokenizer · OpenAI', url: 'https://platform.openai.com/tokenizer', description: 'Herramienta externa para explorar la tokenización (en inglés).' }],
     steps: [
       {
         id: 'definicion', kind: 'concept', eyebrow: '01 · La idea',
@@ -174,7 +200,7 @@ export const blocks = [
 ] as const;
 
 export const catalog: CatalogTopic[] = [
-  { number: 1, title: 'Mapa de la IA', block: 1, minutes: 5 },
+  { number: 1, title: 'Mapa de la IA', block: 1, minutes: 5, slug: 'mapa-de-la-ia' },
   { number: 2, title: '¿Qué es un LLM?', block: 1, minutes: 10, slug: 'que-es-un-llm' },
   { number: 3, title: '¿Cómo funciona un LLM?', block: 1, minutes: 10 },
   { number: 4, title: 'Tokens y tokenización', block: 1, minutes: 8, slug: 'tokens-y-tokenizacion' },

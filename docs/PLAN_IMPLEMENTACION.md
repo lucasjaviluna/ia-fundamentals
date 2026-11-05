@@ -80,6 +80,7 @@ Todas las lecciones mantienen un contrato pedagógico:
 8. **Repaso:** entre 2 y 4 preguntas de opción múltiple con explicación de cada respuesta.
 9. **Tres conclusiones:** resumen que el participante debería poder repetir.
 10. **Continuación:** siguiente tema y, si corresponde, vínculo al ejercicio del repositorio.
+11. **Recursos opcionales:** cuando aporten valor, incluir enlaces confiables y pertinentes en una sección plegable discreta, indicando el idioma si corresponde.
 
 **Ejemplo de repaso — tokenización:** «¿un token es siempre una palabra?», «¿dos modelos pueden contar tokens de forma distinta?», «¿por qué importa al calcular el contexto?».
 
@@ -93,7 +94,7 @@ El repaso debe funcionar en dos modalidades: en lectura, selección y feedback; 
 
 | # | Tema | Profundidad y explicación prevista | Demostración | Estado |
 |---|---|---|---|---|
-| 01 | Mapa de la IA | **Básico.** IA vs machine learning vs deep learning vs IA generativa, relaciones y ejemplos | Clasificador de casos cotidianos | Pendiente |
+| 01 | Mapa de la IA | **Básico.** IA vs machine learning vs deep learning vs IA generativa, relaciones y ejemplos | Clasificador de casos cotidianos | **Disponible** |
 | 02 | ¿Qué es un LLM? | **Básico.** Modelo de lenguaje, patrones, inferencia, capacidades y errores | Predicción de siguiente fragmento con probabilidades ficticias | **Disponible** |
 | 03 | ¿Cómo funciona un LLM? | **Básico + ampliación.** Entrenamiento, inferencia, Transformers de forma intuitiva, generación progresiva | Animación de entrada → tokens → modelo → salida | Pendiente |
 | 04 | Tokens y tokenización | **Básico + práctico.** Segmentación, IDs, codificaciones, relación con contexto y uso | Tokenizador local con texto editable y IDs reales | **Disponible** |
@@ -143,7 +144,7 @@ Cada demo incluye título, objetivo, tipo de ejecución, datos de entrada, contr
 |---|---|---|---|
 | **Next Token Simulator** | Elegir entre continuaciones sucesivas y ver cómo se construye una frase | **Simulación** con distribuciones ficticias; sin API | **E1: implementado** |
 | **Tokenizer Explorer** | Cambiar texto, idioma, signos, emojis; visualizar tokens/IDs | **Ejecución local** con `js-tiktoken`, `cl100k_base` | **E1: implementado** |
-| **AI Concept Classifier** | Clasificar ejemplos según tipo de IA | Simulación didáctica local | E2 |
+| **AI Concept Classifier** | Clasificar ejemplos según tipo de IA | Simulación didáctica local | **E2: implementado** |
 | **Prompt Playground** | Comparar prompt inicial y prompt mejorado | Casos reproducibles; API real opcional desde servicio seguro | E2 |
 | **Context Meter** | Visualizar ocupación de contexto y recorte hipotético | Simulación local con límites declarados | E2 |
 | **Reliability Explorer** | Contrastar respuestas y comprobar evidencias | Respuestas precargadas con explicación | E2 |
@@ -196,9 +197,9 @@ Una demo principal debe funcionar en el navegador **sin depender de una API**. C
 |---|---|---|
 | `/` | Portada, propuesta y accesos | E1: disponible |
 | `/curso` | Mapa de bloques, temas y progreso | E1: disponible |
-| `/curso/:slug` | Lección interactiva completa | E1: dos slugs disponibles |
+| `/curso/:slug` | Lección interactiva completa | E1/E2: tres slugs disponibles |
 | `/presentar/:slug` | Presentación por pasos de una lección | E1: disponible |
-| `/labs/:slug` | Demo ampliada | E1: dos laboratorios disponibles |
+| `/labs/:slug` | Demo ampliada | E1/E2: tres laboratorios disponibles |
 | `/glosario` | Definiciones breves | E1: disponible |
 
 ### UX base
@@ -260,7 +261,7 @@ ia-fundamentals/
 
 ### Modelo de contenidos
 
-El tipo real `Lesson` y los datos de las dos primeras lecciones viven en `web/src/data/lessons.ts`. Un objeto de lección incluye metadatos, pregunta, idea central, pasos, demo asociada, preguntas y conclusiones. La página de lectura y la presentación interpretan los mismos `LessonStep`.
+El tipo real `Lesson` y los datos de las lecciones disponibles viven en `web/src/data/lessons.ts`. Un objeto de lección incluye metadatos, pregunta, idea central, pasos, demo asociada, preguntas y conclusiones. La página de lectura y la presentación interpretan los mismos `LessonStep`.
 
 A futuro se agregará un `LearningPath` (`intro-90` y `completo`) con selección de segmentos o pasos, sin copiar texto ni preguntas. Añadir validación de metadatos cuando el catálogo crezca. No migrar prematuramente a un CMS.
 
@@ -322,7 +323,8 @@ Cada directorio incluirá cuando se implemente:
 - [x] Laboratorios independientes, glosario y tema claro/oscuro.
 - [x] Notas plegadas y controles básicos de teclado.
 - [x] Tests automatizados básicos y pipeline de compilación exitoso.
-- [ ] **Revisión visual y accesibilidad manual** en escritorio, móvil y proyector.
+- [x] **Revisión visual** realizada por el usuario.
+- [ ] **Revisión de accesibilidad manual** en escritorio, móvil y proyector.
 - [ ] **Prueba real de una mini charla** para validar claridad, tiempos y densidad por paso.
 - [ ] **Comprobar comportamiento offline** si se comunica públicamente esa capacidad.
 
@@ -334,7 +336,7 @@ Cada directorio incluirá cuando se implemente:
 
 **Objetivo:** entregar una charla completa y ensayable, no solo un índice.
 
-- [ ] Incorporar las 14 lecciones faltantes (primero los segmentos que formen `intro-90`).
+- [ ] Incorporar las 13 lecciones faltantes (primero los segmentos que formen `intro-90`).
 - [ ] Desarrollar las demos de clasificación de IA, prompting, contexto, tools/agentes, Skills, MCP y RAG, más seguridad y evaluación.
 - [ ] Implementar recorrido `intro-90` como selección de pasos del catálogo, con progreso temporal/navegación clara.
 - [ ] Añadir notas de presentador, ejemplos cotidianos, respuestas razonadas y conclusiones por tema.
@@ -373,7 +375,7 @@ Cada directorio incluirá cuando se implemente:
 
 ### Orden sugerido de ejecución inmediata
 
-1. Validar E1 visualmente; registrar problemas y mejoras concretas.
+1. Completar la validación pedagógica y de accesibilidad de E1; registrar problemas y mejoras concretas.
 2. Implementar primero los temas `01`, `03` y `05` y sus demostraciones para completar el arco «qué es → cómo funciona → cómo interactuamos».
 3. Incorporar `06` y `07` (contexto y confiabilidad).
 4. Agregar `09`, `10`, `11` y `12` como secuencia «tools → agentes → Skills → MCP».
@@ -440,8 +442,10 @@ Cada directorio incluirá cuando se implemente:
 | Tokenizador `cl100k_base` | **Implementado (local)** |
 | Quizzes, progreso local y tema | **Implementados** |
 | CI TypeScript, tests y build | **Éxito comprobado en E1** |
-| Revisión pedagógica/visual en navegador | **Pendiente** |
-| Otras 14 lecciones | **Pendientes** |
+| Revisión visual en navegador | **Realizada por el usuario** |
+| Revisión pedagógica y accesibilidad manual | **Pendientes** |
+| Lección 01 — Mapa de la IA y clasificador | **Implementados** |
+| Otras 13 lecciones | **Pendientes** |
 | Recorrido integrado de 90 minutos | **Pendiente** |
 | Directorios `labs/` con código y soluciones | **Pendientes** |
 | Test e2e y publicación validada | **Pendientes** |
@@ -466,4 +470,4 @@ Cada directorio incluirá cuando se implemente:
 
 ---
 
-**Próxima decisión operativa:** validar la UX de la Entrega 1 y después implementar incrementalmente el recorrido introductorio, manteniendo separación entre contenido básico y profundizaciones. No es necesario diseñar una nueva arquitectura antes de seguir añadiendo lecciones.
+**Próxima decisión operativa:** completar la validación pedagógica y de accesibilidad de la Entrega 1 y continuar implementando incrementalmente el recorrido introductorio, manteniendo separación entre contenido básico y profundizaciones. No es necesario diseñar una nueva arquitectura antes de seguir añadiendo lecciones.

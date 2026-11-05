@@ -1,3 +1,4 @@
+import { AIClassifier } from '../demos/ai-classifier/AIClassifier';
 import { lazy, Suspense } from 'react';
 import { Quiz } from './Quiz';
 import { NextTokenSimulator } from '../demos/next-token/NextTokenSimulator';
@@ -9,7 +10,7 @@ const TokenizerExplorer = lazy(async () => {
 });
 
 export function LessonDemo({ lesson }: { lesson: Lesson }) {
-  return lesson.id === 'llm'
+  return lesson.id === 'mapa-ia' ? <AIClassifier /> : lesson.id === 'llm'
     ? <NextTokenSimulator />
     : <Suspense fallback={<p className="demo-loading">Preparando el laboratorio…</p>}><TokenizerExplorer /></Suspense>;
 }

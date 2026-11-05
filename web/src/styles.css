@@ -326,3 +326,10 @@ button:disabled { cursor: not-allowed; opacity: .46; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
 }
+
+.lesson-resources { border-top: 1px solid var(--border); padding: 22px 0; }
+.lesson-resources summary { cursor: pointer; font-weight: 750; color: var(--muted); }
+.lesson-resources > p, .lesson-resources li span { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.lesson-resources ul { list-style: none; padding: 0; display: grid; gap: 15px; }
+.lesson-resources li { display: grid; gap: 3px; }
+.lesson-resources a { color: var(--primary); font-weight: 750; }

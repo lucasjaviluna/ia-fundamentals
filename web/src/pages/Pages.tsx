@@ -34,7 +34,7 @@ export function HomePage() {
             <h1>La inteligencia artificial, <span>sin complicaciones.</span></h1>
             <p>De los primeros tokens a los agentes. Conceptos claros, visualizaciones que podés tocar y ejemplos que realmente muestran cómo funcionan las cosas.</p>
             <div className="hero-actions"><Link className="btn btn-primary btn-large" to="/curso">Explorar el curso <span aria-hidden="true">↗</span></Link><Link className="btn btn-muted btn-large" to="/presentar/que-es-un-llm">Comenzar presentación <span aria-hidden="true">▣</span></Link></div>
-            <div className="hero-numbers"><div><strong>16</strong><span>temas previstos</span></div><div><strong>02</strong><span>lecciones disponibles</span></div><div><strong>100%</strong><span>práctico y visual</span></div></div>
+            <div className="hero-numbers"><div><strong>16</strong><span>temas previstos</span></div><div><strong>{String(lessons.length).padStart(2, '0')}</strong><span>lecciones disponibles</span></div><div><strong>100%</strong><span>práctico y visual</span></div></div>
           </div>
           <div className="hero-art" aria-label="Mapa visual de los conceptos de IA">
             <div className="art-grid" aria-hidden="true" />
@@ -72,7 +72,7 @@ export function CoursePage() {
     <div className="container page">
       <Meta>MAPA DE APRENDIZAJE</Meta>
       <h1 className="page-title">Un concepto a la vez.</h1>
-      <p className="page-lead">Cuatro bloques, 16 temas y un camino desde los fundamentos hasta la aplicación práctica. Empezamos con dos lecciones piloto; el resto se irá incorporando de forma progresiva.</p>
+      <p className="page-lead">Cuatro bloques, 16 temas y un camino desde los fundamentos hasta la aplicación práctica. Las lecciones disponibles se irán incorporando de forma progresiva.</p>
       <div className="course-progress"><span>Tu progreso en las lecciones disponibles</span><strong>{completed.filter((slug) => lessons.some((lesson) => lesson.slug === slug)).length} / {lessons.length}</strong><div className="course-track"><span style={{ width: `${Math.min(100, completed.length / lessons.length * 100)}%` }} /></div></div>
       <div className="block-list">
         {blocks.map((block) => (
@@ -116,6 +116,7 @@ export function LessonPage() {
         <div className="lesson-sections">
           {lesson.steps.map((step) => <StepCard key={step.id} lesson={lesson} step={step} onComplete={() => completeLesson(lesson.slug)} />)}
           <KeyTakeaways lesson={lesson} />
+          {lesson.resources && lesson.resources.length > 0 && <details className="lesson-resources"><summary>Recursos para profundizar</summary><p>Lecturas y herramientas externas para explorar a tu ritmo.</p><ul>{lesson.resources.map((resource) => <li key={resource.url}><a href={resource.url} target="_blank" rel="noopener noreferrer">{resource.title} ↗</a><span>{resource.description}</span></li>)}</ul></details>}
         </div>
         <div className="lesson-end">
           <div><Meta>SEGUÍ EXPLORANDO</Meta><h3>Probá el laboratorio completo</h3><p>Volvé a experimentar con un ejemplo interactivo independiente.</p><Link className="btn btn-muted" to={`/labs/${lesson.labSlug}`}>Abrir laboratorio ↗</Link></div>
@@ -134,10 +135,10 @@ export function LabPage() {
     <div className="container page lab-page">
       <Link className="breadcrumb" to={`/curso/${lesson.slug}`}>← Volver a la lección</Link>
       <Meta>LABORATORIO INTERACTIVO · SIN API</Meta>
-      <h1 className="page-title">{lesson.id === 'llm' ? 'Predicción del siguiente fragmento' : 'Explorador de tokens'}</h1>
-      <p className="page-lead">{lesson.id === 'llm' ? 'Una simulación paso a paso para entender cómo se elige una continuación posible.' : 'Un tokenizador real, ejecutado dentro de tu navegador, con un vocabulario de referencia.'}</p>
+      <h1 className="page-title">{lesson.id === 'mapa-ia' ? 'Clasificador de conceptos de IA' : lesson.id === 'llm' ? 'Predicción del siguiente fragmento' : 'Explorador de tokens'}</h1>
+      <p className="page-lead">{lesson.id === 'mapa-ia' ? 'Una simulación para distinguir conceptos mediante casos preparados.' : lesson.id === 'llm' ? 'Una simulación paso a paso para entender cómo se elige una continuación posible.' : 'Un tokenizador real, ejecutado dentro de tu navegador, con un vocabulario de referencia.'}</p>
       <LessonDemo lesson={lesson} />
-      <div className="lab-explanation"><h2>¿Qué acabás de observar?</h2><p>{lesson.id === 'llm' ? 'En cada paso cambian las posibles continuaciones. En un LLM real las predicciones son más complejas y dependen de los tokens anteriores y del contexto; aquí utilizamos opciones y porcentajes ficticios.' : 'El texto se transforma en IDs de tokens. Un mismo idioma, un signo o un emoji pueden producir segmentaciones diferentes. Lo mostrado corresponde específicamente a cl100k_base.'}</p><Link to={`/curso/${lesson.slug}`}>Volver a la explicación y al repaso →</Link></div>
+      <div className="lab-explanation"><h2>¿Qué acabás de observar?</h2><p>{lesson.id === 'mapa-ia' ? 'Los ejemplos destacan una característica, pero las categorías pueden superponerse. Un sistema generativo también puede usar aprendizaje profundo.' : lesson.id === 'llm' ? 'En cada paso cambian las posibles continuaciones. En un LLM real las predicciones son más complejas y dependen de los tokens anteriores y del contexto; aquí utilizamos opciones y porcentajes ficticios.' : 'El texto se transforma en IDs de tokens. Un mismo idioma, un signo o un emoji pueden producir segmentaciones diferentes. Lo mostrado corresponde específicamente a cl100k_base.'}</p><Link to={`/curso/${lesson.slug}`}>Volver a la explicación y al repaso →</Link></div>
     </div>
   );
 }
