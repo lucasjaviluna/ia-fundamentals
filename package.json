@@ -1,0 +1,14 @@
+{
+  "name": "ia-fundamentals",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["web"],
+  "scripts": {
+    "dev": "npm run dev --workspace web",
+    "build": "npm run build --workspace web",
+    "typecheck": "npm run typecheck --workspace web",
+    "test": "npm run test --workspace web",
+    "test:watch": "npm run test:watch --workspace web"
+  },
+  "engines": { "node": ">=20.19.0" }
+}
