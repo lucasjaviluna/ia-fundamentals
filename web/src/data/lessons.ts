@@ -1,3 +1,4 @@
+import { evaluationLesson, sdlcLesson } from './qualitySdlcLessons';
 import { ragLesson, securityLesson } from './ragSecurityLessons';
 import { modelsApiLesson } from './modelsApiLesson';
 import { skillsLesson, mcpLesson } from './skillsMcpLessons';
@@ -281,6 +282,8 @@ export const lessons: Lesson[] = [
   mcpLesson,
   ragLesson,
   securityLesson,
+  evaluationLesson,
+  sdlcLesson,
 ];
 
 export const lessonBySlug = (slug: string): Lesson | undefined => lessons.find((lesson) => lesson.slug === slug);
@@ -314,6 +317,6 @@ export const catalog: CatalogTopic[] = [
   { number: 12, title: 'MCP', block: 3, minutes: 13, slug: 'model-context-protocol' },
   { number: 13, title: 'Embeddings y RAG', block: 3, minutes: 10, slug: 'embeddings-y-rag' },
   { number: 14, title: 'Seguridad y permisos', block: 4, minutes: 8, slug: 'seguridad-y-buenas-practicas' },
-  { number: 15, title: 'Evaluación y guardrails', block: 4, minutes: 8 },
-  { number: 16, title: 'IA en desarrollo de software', block: 4, minutes: 10 },
+  { number: 15, title: 'Evaluación y guardrails', block: 4, minutes: 8, slug: 'evaluacion-y-guardrails' },
+  { number: 16, title: 'IA en desarrollo de software', block: 4, minutes: 10, slug: 'ia-en-desarrollo-de-software' },
 ];

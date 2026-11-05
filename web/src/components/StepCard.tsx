@@ -1,3 +1,4 @@
+import { EvaluationDemo, SdlcDemo } from '../demos/quality-sdlc/QualitySdlc';
 import { RagDemo, SecurityDemo } from '../demos/rag-security/RagSecurity';
 import { ApiRequest } from '../demos/api-request/ApiRequest';
 import { SkillsDemo, McpDemo } from '../demos/skills-mcp/SkillsMcp';
@@ -18,7 +19,7 @@ const TokenizerExplorer = lazy(async () => {
 });
 
 export function LessonDemo({ lesson }: { lesson: Lesson }) {
-  return lesson.id === 'rag' ? <RagDemo /> : lesson.id === 'seguridad' ? <SecurityDemo /> : lesson.id === 'modelos-api' ? <ApiRequest /> : lesson.id === 'skills' ? <SkillsDemo /> : lesson.id === 'mcp' ? <McpDemo /> : lesson.id === 'tools' ? <ToolDemo /> : lesson.id === 'agentes' ? <AgentDemo /> : lesson.id === 'confiabilidad' ? <ReliabilityExplorer /> : lesson.id === 'contexto' ? <ContextMeter /> : lesson.id === 'prompts' ? <PromptPlayground /> : lesson.id === 'funcionamiento-llm' ? <LLMFlow /> : lesson.id === 'mapa-ia' ? <AIClassifier /> : lesson.id === 'llm'
+  return lesson.id === 'evaluacion' ? <EvaluationDemo /> : lesson.id === 'sdlc' ? <SdlcDemo /> : lesson.id === 'rag' ? <RagDemo /> : lesson.id === 'seguridad' ? <SecurityDemo /> : lesson.id === 'modelos-api' ? <ApiRequest /> : lesson.id === 'skills' ? <SkillsDemo /> : lesson.id === 'mcp' ? <McpDemo /> : lesson.id === 'tools' ? <ToolDemo /> : lesson.id === 'agentes' ? <AgentDemo /> : lesson.id === 'confiabilidad' ? <ReliabilityExplorer /> : lesson.id === 'contexto' ? <ContextMeter /> : lesson.id === 'prompts' ? <PromptPlayground /> : lesson.id === 'funcionamiento-llm' ? <LLMFlow /> : lesson.id === 'mapa-ia' ? <AIClassifier /> : lesson.id === 'llm'
     ? <NextTokenSimulator />
     : <Suspense fallback={<p className="demo-loading">Preparando el laboratorio…</p>}><TokenizerExplorer /></Suspense>;
 }

@@ -131,8 +131,8 @@ El repaso debe funcionar en dos modalidades: en lectura, selección y feedback; 
 | # | Tema | Profundidad y explicación prevista | Demostración | Estado |
 |---|---|---|---|---|
 | 14 | Seguridad y buenas prácticas | **Básico.** Privacidad, permisos, secretos, prompt injection, datos no confiables | Documento con instrucción maliciosa simulada y mitigación comentada | **Disponible** |
-| 15 | Evaluación y guardrails | **Intermedio.** Casos de prueba, criterios, resultados, aprobaciones humanas y trazabilidad | Evaluar respuestas frente a criterios definidos | Pendiente |
-| 16 | IA aplicada al SDLC | **Intermedio + taller.** Historia de usuario → análisis → código → tests → revisión | Demo integradora con validación humana | Pendiente |
+| 15 | Evaluación y guardrails | **Intermedio.** Casos de prueba, criterios, resultados, aprobaciones humanas y trazabilidad | Evaluar respuestas frente a criterios definidos | **Disponible** |
+| 16 | IA aplicada al SDLC | **Intermedio + taller.** Historia de usuario → análisis → código → tests → revisión | Demo integradora con validación humana | **Disponible** |
 
 **Nivel que se busca:** reconocer riesgos, diferenciar evidencia de una respuesta agradable y conocer un proceso de desarrollo asistido con validaciones.
 
@@ -152,7 +152,7 @@ Cada demo incluye título, objetivo, tipo de ejecución, datos de entrada, contr
 | **Skills Explorer** | Ver una skill, cuándo se aplica y qué instrucciones contiene | Recorrido guiado ficticio; fichero real pendiente en taller | **E2: implementado** |
 | **MCP Explorer** | Descubrir tools/resources y observar mensajes | Simulación en web; servidor real pendiente en laboratorio local | **E2: implementado** |
 | **RAG Explorer** | Ver documentos, chunks, búsqueda y contexto seleccionado | Corpus ficticio y ranking léxico; implementación avanzada pendiente en taller | **E2: implementado** |
-| **Evaluation Explorer** | Revisar respuestas según una rúbrica | Evaluación local ilustrativa y tests reales opcionales | E2/E3 |
+| **Evaluation Explorer** | Revisar respuestas según una rúbrica | Evaluación local ilustrativa; tests reales pendientes en taller | **E2: implementado** |
 
 ### Etiquetas innegociables
 
@@ -197,9 +197,9 @@ Una demo principal debe funcionar en el navegador **sin depender de una API**. C
 |---|---|---|
 | `/` | Portada, propuesta y accesos | E1: disponible |
 | `/curso` | Mapa de bloques, temas y progreso | E1: disponible |
-| `/curso/:slug` | Lección interactiva completa | E1/E2: catorce slugs disponibles |
+| `/curso/:slug` | Lección interactiva completa | E1/E2: dieciséis slugs disponibles |
 | `/presentar/:slug` | Presentación por pasos de una lección | E1: disponible |
-| `/labs/:slug` | Demo ampliada | E1/E2: catorce laboratorios disponibles |
+| `/labs/:slug` | Demo ampliada | E1/E2: dieciséis laboratorios disponibles |
 | `/glosario` | Definiciones breves | E1: disponible |
 
 ### UX base
@@ -336,7 +336,7 @@ Cada directorio incluirá cuando se implemente:
 
 **Objetivo:** entregar una charla completa y ensayable, no solo un índice.
 
-- [ ] Incorporar las 2 lecciones faltantes (primero los segmentos que formen `intro-90`).
+- [x] Incorporar las 16 lecciones del catálogo.
 - [ ] Desarrollar las demos de clasificación de IA, prompting, contexto, tools/agentes, Skills, MCP y RAG, más seguridad y evaluación.
 - [ ] Implementar recorrido `intro-90` como selección de pasos del catálogo, con progreso temporal/navegación clara.
 - [ ] Añadir notas de presentador, ejemplos cotidianos, respuestas razonadas y conclusiones por tema.
@@ -453,7 +453,7 @@ Cada directorio incluirá cuando se implemente:
 | Lecciones 11 y 12 — Skills y MCP | **Implementadas** |
 | Lección 08 — Modelos, APIs y multimodalidad | **Implementada** |
 | Lecciones 13 y 14 — RAG y seguridad | **Implementadas** |
-| Otras 2 lecciones | **Pendientes** |
+| Lecciones 15 y 16 — Evaluación y desarrollo | **Implementadas** |
 | Recorrido integrado de 90 minutos | **Pendiente** |
 | Directorios `labs/` con código y soluciones | **Pendientes** |
 | Test e2e y publicación validada | **Pendientes** |

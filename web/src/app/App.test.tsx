@@ -4,11 +4,11 @@ import { describe, expect, it } from 'vitest';
 import { App } from './App';
 
 describe('rutas de aprendizaje', () => {
-  it('renderiza el mapa con 16 temas y catorce disponibles', () => {
+  it('renderiza el mapa con 16 temas disponibles', () => {
     render(<MemoryRouter initialEntries={['/curso']}><App /></MemoryRouter>);
     expect(screen.getByRole('heading', { name: 'Un concepto a la vez.' })).toBeInTheDocument();
-    expect(screen.getAllByText('Próximamente')).toHaveLength(2);
-    expect(screen.getAllByText('Disponible')).toHaveLength(14);
+    expect(screen.queryByText('Próximamente')).not.toBeInTheDocument();
+    expect(screen.getAllByText('Disponible')).toHaveLength(16);
   });
 
   it('comparte una lección entre modo lectura y presentación', () => {
