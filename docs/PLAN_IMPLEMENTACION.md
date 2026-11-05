@@ -116,8 +116,8 @@ El repaso debe funcionar en dos modalidades: en lectura, selección y feedback; 
 
 | # | Tema | Profundidad y explicación prevista | Demostración | Estado |
 |---|---|---|---|---|
-| 09 | Tools y function calling | **Intermedio.** Descripción de herramientas, argumentos, resultado y límites | Solicitud `getOrderStatus(id)` y retorno de datos ficticios | Pendiente |
-| 10 | Agentes y workflows | **Intermedio.** Modelo, tools, estado, bucles de ejecución, decisiones y aprobación humana | Trazas planificar → actuar → observar → validar | Pendiente |
+| 09 | Tools y function calling | **Intermedio.** Descripción de herramientas, argumentos, resultado y límites | Solicitud `getOrderStatus(id)` y retorno de datos ficticios | **Disponible** |
+| 10 | Agentes y workflows | **Intermedio.** Modelo, tools, estado, bucles de ejecución, decisiones y aprobación humana | Trazas planificar → actuar → observar → validar | **Disponible** |
 | 11 | Agent Skills | **Intermedio.** Instrucciones reutilizables, recursos, activación contextual, `SKILL.md` | Skill que guía la revisión de un cambio de código | Pendiente |
 | 12 | MCP | **Intermedio.** Host, cliente, servidor, tools, resources y prompts | Explorador visual + cliente/servidor MCP real en el taller | Pendiente |
 | 13 | Embeddings, chunks y RAG | **Básico + intermedio.** Vectores, chunks, búsqueda lexical/semántica, recuperación y uso en prompts | Recuperar fragmentos de un corpus pequeño, mostrar fuentes y ranking | Pendiente |
@@ -148,7 +148,7 @@ Cada demo incluye título, objetivo, tipo de ejecución, datos de entrada, contr
 | **Prompt Playground** | Comparar prompt inicial y prompt mejorado | Casos preparados y reproducibles | **E2: implementado** |
 | **Context Meter** | Visualizar ocupación de contexto y exceso hipotético | Simulación local con límite ficticio | **E2: implementado** |
 | **Reliability Explorer** | Contrastar respuestas y comprobar evidencias | Casos ficticios con explicación | **E2: implementado** |
-| **Tool/Agent Visualizer** | Inspeccionar argumentos, llamada, respuesta y siguiente decisión | Trazas locales; sin ejecución autónoma sobre datos reales | E2 |
+| **Tool/Agent Visualizer** | Inspeccionar argumentos, llamada, respuesta y siguiente decisión | Trazas locales; sin ejecución autónoma sobre datos reales | **E2: implementado** |
 | **Skills Explorer** | Ver una skill, cuándo se aplica y qué instrucciones contiene | Recorrido guiado; fichero real en taller | E2/E3 |
 | **MCP Explorer** | Descubrir tools/resources y observar mensajes | Simulación en web, servidor real en laboratorio local | E2/E3 |
 | **RAG Explorer** | Ver documentos, chunks, búsqueda y contexto seleccionado | Corpus pequeño; ranking explicado; implementación avanzada en taller | E2/E3 |
@@ -197,9 +197,9 @@ Una demo principal debe funcionar en el navegador **sin depender de una API**. C
 |---|---|---|
 | `/` | Portada, propuesta y accesos | E1: disponible |
 | `/curso` | Mapa de bloques, temas y progreso | E1: disponible |
-| `/curso/:slug` | Lección interactiva completa | E1/E2: siete slugs disponibles |
+| `/curso/:slug` | Lección interactiva completa | E1/E2: nueve slugs disponibles |
 | `/presentar/:slug` | Presentación por pasos de una lección | E1: disponible |
-| `/labs/:slug` | Demo ampliada | E1/E2: siete laboratorios disponibles |
+| `/labs/:slug` | Demo ampliada | E1/E2: nueve laboratorios disponibles |
 | `/glosario` | Definiciones breves | E1: disponible |
 
 ### UX base
@@ -336,7 +336,7 @@ Cada directorio incluirá cuando se implemente:
 
 **Objetivo:** entregar una charla completa y ensayable, no solo un índice.
 
-- [ ] Incorporar las 9 lecciones faltantes (primero los segmentos que formen `intro-90`).
+- [ ] Incorporar las 7 lecciones faltantes (primero los segmentos que formen `intro-90`).
 - [ ] Desarrollar las demos de clasificación de IA, prompting, contexto, tools/agentes, Skills, MCP y RAG, más seguridad y evaluación.
 - [ ] Implementar recorrido `intro-90` como selección de pasos del catálogo, con progreso temporal/navegación clara.
 - [ ] Añadir notas de presentador, ejemplos cotidianos, respuestas razonadas y conclusiones por tema.
@@ -449,7 +449,8 @@ Cada directorio incluirá cuando se implemente:
 | Lección 05 — Prompts y ejemplos | **Implementada** |
 | Lección 06 — Contexto y memoria | **Implementada** |
 | Lección 07 — Confiabilidad y alucinaciones | **Implementada** |
-| Otras 9 lecciones | **Pendientes** |
+| Lecciones 09 y 10 — Tools y agentes | **Implementadas** |
+| Otras 7 lecciones | **Pendientes** |
 | Recorrido integrado de 90 minutos | **Pendiente** |
 | Directorios `labs/` con código y soluciones | **Pendientes** |
 | Test e2e y publicación validada | **Pendientes** |

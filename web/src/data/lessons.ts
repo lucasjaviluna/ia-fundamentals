@@ -1,3 +1,5 @@
+import { toolLesson, agentLesson } from './toolAgentLessons';
+
 export type StepKind = 'concept' | 'analogy' | 'process' | 'demo' | 'warning' | 'quiz';
 
 export type LessonStep = {
@@ -269,6 +271,8 @@ export const lessons: Lesson[] = [
     ],
     takeaways: ['La fluidez y la seguridad no prueban que una respuesta sea correcta.', 'Contrastá las afirmaciones con fuentes pertinentes y reconocé la incertidumbre.', 'Los parámetros de generación no reemplazan la verificación.'],
   },
+  toolLesson,
+  agentLesson,
 ];
 
 export const lessonBySlug = (slug: string): Lesson | undefined => lessons.find((lesson) => lesson.slug === slug);
@@ -296,8 +300,8 @@ export const catalog: CatalogTopic[] = [
   { number: 6, title: 'Contexto y memoria', block: 2, minutes: 8, slug: 'contexto-y-memoria' },
   { number: 7, title: 'Confiabilidad y alucinaciones', block: 2, minutes: 8, slug: 'confiabilidad-y-alucinaciones' },
   { number: 8, title: 'Modelos y APIs', block: 2, minutes: 8 },
-  { number: 9, title: 'Tools y function calling', block: 3, minutes: 10 },
-  { number: 10, title: 'Agentes y workflows', block: 3, minutes: 10 },
+  { number: 9, title: 'Tools y function calling', block: 3, minutes: 10, slug: 'tools-y-function-calling' },
+  { number: 10, title: 'Agentes y workflows', block: 3, minutes: 10, slug: 'agentes-y-workflows' },
   { number: 11, title: 'Agent Skills', block: 3, minutes: 8 },
   { number: 12, title: 'MCP', block: 3, minutes: 13 },
   { number: 13, title: 'Embeddings y RAG', block: 3, minutes: 10 },

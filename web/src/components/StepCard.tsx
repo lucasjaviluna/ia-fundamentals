@@ -1,3 +1,4 @@
+import { ToolDemo, AgentDemo } from '../demos/tool-agent/ToolAgent';
 import { ReliabilityExplorer } from '../demos/reliability/ReliabilityExplorer';
 import { ContextMeter } from '../demos/context-meter/ContextMeter';
 import { PromptPlayground } from '../demos/prompt-playground/PromptPlayground';
@@ -14,7 +15,7 @@ const TokenizerExplorer = lazy(async () => {
 });
 
 export function LessonDemo({ lesson }: { lesson: Lesson }) {
-  return lesson.id === 'confiabilidad' ? <ReliabilityExplorer /> : lesson.id === 'contexto' ? <ContextMeter /> : lesson.id === 'prompts' ? <PromptPlayground /> : lesson.id === 'funcionamiento-llm' ? <LLMFlow /> : lesson.id === 'mapa-ia' ? <AIClassifier /> : lesson.id === 'llm'
+  return lesson.id === 'tools' ? <ToolDemo /> : lesson.id === 'agentes' ? <AgentDemo /> : lesson.id === 'confiabilidad' ? <ReliabilityExplorer /> : lesson.id === 'contexto' ? <ContextMeter /> : lesson.id === 'prompts' ? <PromptPlayground /> : lesson.id === 'funcionamiento-llm' ? <LLMFlow /> : lesson.id === 'mapa-ia' ? <AIClassifier /> : lesson.id === 'llm'
     ? <NextTokenSimulator />
     : <Suspense fallback={<p className="demo-loading">Preparando el laboratorio…</p>}><TokenizerExplorer /></Suspense>;
 }
