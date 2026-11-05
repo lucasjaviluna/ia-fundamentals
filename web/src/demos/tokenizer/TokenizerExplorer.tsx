@@ -58,7 +58,7 @@ export function TokenizerExplorer() {
           {result.length > 0 ? (
             <div className="token-grid" aria-live="polite">
               {result.map((item, index) => (
-                <div className="token-pill" key={`${item.id}-${index`} title={`ID ${item.id`}>
+                <div className="token-pill" key={`${item.id}-${index}`} title={`ID ${item.id}`}>
                   <span className="token-text">{item.fragment || '∅'}</span>
                   <span className="token-id">ID {item.id}</span>
                 </div>

@@ -24,7 +24,7 @@ export function PresentationPage() {
       if (isEditableTarget(event.target) || event.altKey || event.ctrlKey || event.metaKey) return;
       if (event.key === 'ArrowRight') { event.preventDefault(); move(1); }
       else if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); }
-      else if (event.key === 'Escape') { navigate(`/curso/${slug`); }
+      else if (event.key === 'Escape') { navigate(`/curso/${slug}`); }
       else if (event.key.toLowerCase() === 'f') {
         if (document.fullscreenElement) void document.exitFullscreen?.().catch(() => {});
         else void document.documentElement.requestFullscreen?.().catch(() => {});
@@ -39,7 +39,7 @@ export function PresentationPage() {
   return (
     <div className="presentation">
       <header className="present-header">
-        <Link className="present-brand" to={`/curso/${lesson.slug`} aria-label="Salir del modo presentación">✳ ia/fundamentals</Link>
+        <Link className="present-brand" to={`/curso/${lesson.slug}`} aria-label="Salir del modo presentación">✳ ia/fundamentals</Link>
         <span className="present-section">LECCIÓN {String(lesson.number).padStart(2, '0')} · {lesson.title}</span>
         <span className="present-counter">{slide + 1} / {total}</span>
       </header>
@@ -54,7 +54,7 @@ export function PresentationPage() {
           </section>
         )}
         {step && <div className="present-step" key={step.id}><StepCard lesson={lesson} step={step} onComplete={() => completeLesson(lesson.slug)} />{step.presenterNote && <details className="presenter-notes"><summary>Notas del presentador (ocultas por defecto)</summary><p>{step.presenterNote}</p></details>}</div>}
-        {slide === total - 1 && <div className="present-summary"><KeyTakeaways lesson={lesson} /><div className="present-summary-links"><Link to={`/labs/${lesson.labSlug`}>Explorar laboratorio ↗</Link><Link to="/curso">Ver mapa del curso ↗</Link></div></div>}
+        {slide === total - 1 && <div className="present-summary"><KeyTakeaways lesson={lesson} /><div className="present-summary-links"><Link to={`/labs/${lesson.labSlug}`}>Explorar laboratorio ↗</Link><Link to="/curso">Ver mapa del curso ↗</Link></div></div>}
         {showHelp && <aside className="present-help"><strong>Atajos</strong><p>← → Cambiar paso · Esc Salir · F Pantalla completa · ? Ayuda</p><button className="btn btn-muted" onClick={() => setShowHelp(false)}>Cerrar</button></aside>}
       </main>
       <footer className="present-footer">

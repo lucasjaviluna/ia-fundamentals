@@ -82,7 +82,7 @@ export function CoursePage() {
               {catalog.filter((topic) => topic.block === block.id).map((topic) => {
                 const available = Boolean(topic.slug);
                 const label = <><span className="topic-number">{String(topic.number).padStart(2, '0')}</span><span className="topic-name">{topic.title}</span><span className="topic-duration">{topic.minutes} min</span><span className="topic-status">{available ? (completed.includes(topic.slug!) ? '✓ Completada' : 'Disponible') : 'Próximamente'}</span><span className="topic-arrow">{available ? '↗' : '—'}</span></>;
-                return available ? <Link key={topic.number} className="topic-row is-available" to={`/curso/${topic.slug`}>{label}</Link> : <div key={topic.number} className="topic-row is-locked">{label}</div>;
+                return available ? <Link key={topic.number} className="topic-row is-available" to={`/curso/${topic.slug}`}>{label}</Link> : <div key={topic.number} className="topic-row is-locked">{label}</div>;
               })}
             </div>
           </section>
@@ -104,11 +104,11 @@ export function LessonPage() {
       <aside className="lesson-sidebar" aria-label="Temario disponible">
         <Link className="sidebar-back" to="/curso">← Todas las lecciones</Link>
         <Meta>BLOQUE 01 · FUNDAMENTOS</Meta>
-        <nav className="side-lessons">{lessons.map((item) => <Link key={item.id} className={`side-lesson ${item.id === lesson.id ? 'active' : ''`} to={`/curso/${item.slug`}><span>{String(item.number).padStart(2, '0')}</span>{item.title}{completed.includes(item.slug) && <span aria-label="Completada">✓</span>}</Link>)}</nav>
-        <div className="sidebar-tip"><strong>¿Dando una charla?</strong><p>Mostrá el contenido paso a paso desde el modo presentación.</p><Link to={`/presentar/${lesson.slug`}>Abrir presentación ↗</Link></div>
+        <nav className="side-lessons">{lessons.map((item) => <Link key={item.id} className={`side-lesson ${item.id === lesson.id ? 'active' : ''}`} to={`/curso/${item.slug}`}><span>{String(item.number).padStart(2, '0')}</span>{item.title}{completed.includes(item.slug) && <span aria-label="Completada">✓</span>}</Link>)}</nav>
+        <div className="sidebar-tip"><strong>¿Dando una charla?</strong><p>Mostrá el contenido paso a paso desde el modo presentación.</p><Link to={`/presentar/${lesson.slug}`}>Abrir presentación ↗</Link></div>
       </aside>
       <div className="lesson-main">
-        <div className="lesson-topline"><Meta>LECCIÓN {String(lesson.number).padStart(2, '0')} · {lesson.level.toUpperCase()} · {lesson.minutes} MIN</Meta><Link className="btn btn-muted" to={`/presentar/${lesson.slug`}>▣ Presentar</Link></div>
+        <div className="lesson-topline"><Meta>LECCIÓN {String(lesson.number).padStart(2, '0')} · {lesson.level.toUpperCase()} · {lesson.minutes} MIN</Meta><Link className="btn btn-muted" to={`/presentar/${lesson.slug}`}>▣ Presentar</Link></div>
         <h1 className="page-title lesson-title">{lesson.title}</h1>
         <p className="page-lead">{lesson.description}</p>
         <div className="big-question"><span>LA PREGUNTA</span><h2>{lesson.question}</h2></div>
@@ -118,8 +118,8 @@ export function LessonPage() {
           <KeyTakeaways lesson={lesson} />
         </div>
         <div className="lesson-end">
-          <div><Meta>SEGUÍ EXPLORANDO</Meta><h3>Probá el laboratorio completo</h3><p>Volvé a experimentar con un ejemplo interactivo independiente.</p><Link className="btn btn-muted" to={`/labs/${lesson.labSlug`}>Abrir laboratorio ↗</Link></div>
-          {nextLesson && <div><Meta>PRÓXIMA LECCIÓN DISPONIBLE</Meta><h3>{nextLesson.title}</h3><Link className="btn btn-primary" to={`/curso/${nextLesson.slug`}>Continuar →</Link></div>}
+          <div><Meta>SEGUÍ EXPLORANDO</Meta><h3>Probá el laboratorio completo</h3><p>Volvé a experimentar con un ejemplo interactivo independiente.</p><Link className="btn btn-muted" to={`/labs/${lesson.labSlug}`}>Abrir laboratorio ↗</Link></div>
+          {nextLesson && <div><Meta>PRÓXIMA LECCIÓN DISPONIBLE</Meta><h3>{nextLesson.title}</h3><Link className="btn btn-primary" to={`/curso/${nextLesson.slug}`}>Continuar →</Link></div>}
         </div>
       </div>
     </div>
@@ -132,12 +132,12 @@ export function LabPage() {
   if (!lesson) return <NotFoundPage />;
   return (
     <div className="container page lab-page">
-      <Link className="breadcrumb" to={`/curso/${lesson.slug`}>← Volver a la lección</Link>
+      <Link className="breadcrumb" to={`/curso/${lesson.slug}`}>← Volver a la lección</Link>
       <Meta>LABORATORIO INTERACTIVO · SIN API</Meta>
       <h1 className="page-title">{lesson.id === 'llm' ? 'Predicción del siguiente fragmento' : 'Explorador de tokens'}</h1>
       <p className="page-lead">{lesson.id === 'llm' ? 'Una simulación paso a paso para entender cómo se elige una continuación posible.' : 'Un tokenizador real, ejecutado dentro de tu navegador, con un vocabulario de referencia.'}</p>
       <LessonDemo lesson={lesson} />
-      <div className="lab-explanation"><h2>¿Qué acabás de observar?</h2><p>{lesson.id === 'llm' ? 'En cada paso cambian las posibles continuaciones. En un LLM real las predicciones son más complejas y dependen de los tokens anteriores y del contexto; aquí utilizamos opciones y porcentajes ficticios.' : 'El texto se transforma en IDs de tokens. Un mismo idioma, un signo o un emoji pueden producir segmentaciones diferentes. Lo mostrado corresponde específicamente a cl100k_base.'}</p><Link to={`/curso/${lesson.slug`}>Volver a la explicación y al repaso →</Link></div>
+      <div className="lab-explanation"><h2>¿Qué acabás de observar?</h2><p>{lesson.id === 'llm' ? 'En cada paso cambian las posibles continuaciones. En un LLM real las predicciones son más complejas y dependen de los tokens anteriores y del contexto; aquí utilizamos opciones y porcentajes ficticios.' : 'El texto se transforma en IDs de tokens. Un mismo idioma, un signo o un emoji pueden producir segmentaciones diferentes. Lo mostrado corresponde específicamente a cl100k_base.'}</p><Link to={`/curso/${lesson.slug}`}>Volver a la explicación y al repaso →</Link></div>
     </div>
   );
 }

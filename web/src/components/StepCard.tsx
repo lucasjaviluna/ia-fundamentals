@@ -16,7 +16,7 @@ export function LessonDemo({ lesson }: { lesson: Lesson }) {
 
 export function StepCard({ lesson, step, onComplete }: { lesson: Lesson; step: LessonStep; onComplete?: () => void }) {
   return (
-    <article className={`lesson-step step-${step.kind`} id={step.id}>
+    <article className={`lesson-step step-${step.kind}`} id={step.id}>
       <div className="step-eyebrow">{step.eyebrow}</div>
       <h2>{step.title}</h2>
       <p className="step-description">{step.description}</p>

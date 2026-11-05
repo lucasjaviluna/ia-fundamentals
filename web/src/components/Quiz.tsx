@@ -49,7 +49,7 @@ export function Quiz({ questions, onComplete }: Props) {
               key={option.id}
               type="button"
               aria-pressed={chosen}
-              className={`quiz-option ${chosen ? (correct ? 'is-correct' : 'is-incorrect') : ''`}
+              className={`quiz-option ${chosen ? (correct ? 'is-correct' : 'is-incorrect') : ''}`}
               onClick={() => setAnswers((previous) => ({ ...previous, [current.id]: option.id }))}>
               <span className="option-indicator">{chosen ? (correct ? '✓' : '×') : '○'}</span>
               {option.label}
