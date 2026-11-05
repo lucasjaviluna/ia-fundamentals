@@ -96,7 +96,7 @@ El repaso debe funcionar en dos modalidades: en lectura, selección y feedback; 
 |---|---|---|---|---|
 | 01 | Mapa de la IA | **Básico.** IA vs machine learning vs deep learning vs IA generativa, relaciones y ejemplos | Clasificador de casos cotidianos | **Disponible** |
 | 02 | ¿Qué es un LLM? | **Básico.** Modelo de lenguaje, patrones, inferencia, capacidades y errores | Predicción de siguiente fragmento con probabilidades ficticias | **Disponible** |
-| 03 | ¿Cómo funciona un LLM? | **Básico + ampliación.** Entrenamiento, inferencia, Transformers de forma intuitiva, generación progresiva | Animación de entrada → tokens → modelo → salida | Pendiente |
+| 03 | ¿Cómo funciona un LLM? | **Básico + ampliación.** Entrenamiento, inferencia, Transformers de forma intuitiva, generación progresiva | Recorrido de entrada → tokens → modelo → salida | **Disponible** |
 | 04 | Tokens y tokenización | **Básico + práctico.** Segmentación, IDs, codificaciones, relación con contexto y uso | Tokenizador local con texto editable y IDs reales | **Disponible** |
 
 **Nivel que se busca:** después del bloque, el público distingue un LLM de un buscador, explica entrenamiento frente a inferencia y comprende por qué un token no equivale a una palabra.
@@ -197,9 +197,9 @@ Una demo principal debe funcionar en el navegador **sin depender de una API**. C
 |---|---|---|
 | `/` | Portada, propuesta y accesos | E1: disponible |
 | `/curso` | Mapa de bloques, temas y progreso | E1: disponible |
-| `/curso/:slug` | Lección interactiva completa | E1/E2: tres slugs disponibles |
+| `/curso/:slug` | Lección interactiva completa | E1/E2: cuatro slugs disponibles |
 | `/presentar/:slug` | Presentación por pasos de una lección | E1: disponible |
-| `/labs/:slug` | Demo ampliada | E1/E2: tres laboratorios disponibles |
+| `/labs/:slug` | Demo ampliada | E1/E2: cuatro laboratorios disponibles |
 | `/glosario` | Definiciones breves | E1: disponible |
 
 ### UX base
@@ -336,7 +336,7 @@ Cada directorio incluirá cuando se implemente:
 
 **Objetivo:** entregar una charla completa y ensayable, no solo un índice.
 
-- [ ] Incorporar las 13 lecciones faltantes (primero los segmentos que formen `intro-90`).
+- [ ] Incorporar las 12 lecciones faltantes (primero los segmentos que formen `intro-90`).
 - [ ] Desarrollar las demos de clasificación de IA, prompting, contexto, tools/agentes, Skills, MCP y RAG, más seguridad y evaluación.
 - [ ] Implementar recorrido `intro-90` como selección de pasos del catálogo, con progreso temporal/navegación clara.
 - [ ] Añadir notas de presentador, ejemplos cotidianos, respuestas razonadas y conclusiones por tema.
@@ -445,7 +445,8 @@ Cada directorio incluirá cuando se implemente:
 | Revisión visual en navegador | **Realizada por el usuario** |
 | Revisión pedagógica y accesibilidad manual | **Pendientes** |
 | Lección 01 — Mapa de la IA y clasificador | **Implementados** |
-| Otras 13 lecciones | **Pendientes** |
+| Lección 03 — Cómo funciona un LLM | **Implementada** |
+| Otras 12 lecciones | **Pendientes** |
 | Recorrido integrado de 90 minutos | **Pendiente** |
 | Directorios `labs/` con código y soluciones | **Pendientes** |
 | Test e2e y publicación validada | **Pendientes** |

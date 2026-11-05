@@ -123,6 +123,28 @@ export const lessons: Lesson[] = [
     takeaways: ['Un LLM aprende patrones durante su entrenamiento.', 'En la inferencia genera tokens condicionados por el contexto.', 'Una respuesta fluida no garantiza exactitud.'],
   },
   {
+    id: 'funcionamiento-llm', slug: 'como-funciona-un-llm', number: 3, block: 1, level: 'Básico', minutes: 10,
+    title: '¿Cómo funciona un LLM?', question: '¿Qué ocurre entre escribir una consulta y recibir una respuesta?',
+    description: 'Recorré el entrenamiento y la generación de una respuesta, desde la entrada hasta los tokens de salida.',
+    keyIdea: 'Un LLM entrenado procesa tokens en contexto y genera una respuesta progresivamente; el entrenamiento y su uso son etapas diferentes.',
+    labSlug: 'recorrido-llm',
+    resources: [{ title: 'Introducción a los modelos de lenguaje · Google', url: 'https://developers.google.com/machine-learning/crash-course/llm', description: 'Profundización sobre modelos de lenguaje y Transformers (disponible en varios idiomas).' }],
+    steps: [
+      { id: 'definicion', kind: 'concept', eyebrow: '01 · La idea', title: 'Preparación y uso', description: 'Durante el entrenamiento se ajustan los parámetros de un modelo a partir de datos. Durante la inferencia, el modelo ya entrenado recibe una entrada y produce una salida.', bullets: ['Entrenamiento: ajuste de parámetros.', 'Inferencia: uso del modelo con un contexto.'], presenterNote: 'Preguntar qué cambia entre preparar un modelo y utilizarlo.' },
+      { id: 'analogia', kind: 'analogy', eyebrow: '02 · Analogía', title: 'Aprender y después responder', description: 'Como una persona que estudia antes de responder una pregunta, un modelo se prepara antes de utilizarse. La analogía es limitada: un modelo no aprende ni comprende de la misma manera que una persona.', presenterNote: 'Aclarar que la analogía no implica conciencia ni memoria humana.' },
+      { id: 'proceso', kind: 'process', eyebrow: '03 · El recorrido', title: 'Del texto a la respuesta', description: 'La aplicación convierte la entrada en tokens. El modelo procesa esos tokens en contexto y estima posibles continuaciones. Al seleccionar tokens sucesivos, la aplicación los convierte en texto.', bullets: ['Entrada → tokenización.', 'Modelo → estimación de continuaciones según el contexto.', 'Selección → nuevos tokens → texto visible.'], presenterNote: 'Aclarar que la selección depende de la configuración y que el proceso mostrado está simplificado.' },
+      { id: 'demo', kind: 'demo', eyebrow: '04 · Experimentá', title: 'Recorré cada etapa', description: 'Avanzá y retrocedé para observar un ejemplo ilustrativo de entrada, tokenización, procesamiento y salida.', presenterNote: 'Pedir al público que identifique en qué etapa se convierte el texto en unidades del modelo.' },
+      { id: 'limites', kind: 'warning', eyebrow: '05 · Un límite importante', title: 'Una explicación simplificada', description: 'Los Transformers utilizan mecanismos de atención para relacionar información del contexto; este recorrido no muestra todos sus cálculos. Generar una continuación plausible no garantiza una respuesta verdadera.', bullets: ['El modelo no consulta automáticamente una fuente externa.', 'La respuesta puede contener errores y debe verificarse cuando importa.'] },
+      { id: 'repaso', kind: 'quiz', eyebrow: '06 · Repaso', title: '¿Qué ocurre en cada etapa?', description: 'Comprobá la diferencia entre entrenamiento, inferencia y generación.', presenterNote: 'Pedir al público que responda antes de revelar cada explicación.' },
+    ],
+    quiz: [
+      { id: 'func-1', question: '¿Qué sucede durante el entrenamiento?', options: [{ id: 'a', label: 'Se ajustan parámetros a partir de datos' }, { id: 'b', label: 'Cada consulta vuelve a entrenar el modelo' }], correctId: 'a', explanation: 'El entrenamiento ajusta parámetros; normalmente la consulta utiliza el modelo ya entrenado.' },
+      { id: 'func-2', question: '¿Qué hace la tokenización?', options: [{ id: 'a', label: 'Convierte el texto en unidades representadas por IDs' }, { id: 'b', label: 'Verifica que la respuesta sea verdadera' }], correctId: 'a', explanation: 'La tokenización representa el texto como una secuencia de IDs; no comprueba afirmaciones.' },
+      { id: 'func-3', question: '¿El modelo siempre consulta Internet al responder?', options: [{ id: 'a', label: 'Sí, automáticamente' }, { id: 'b', label: 'No, necesita herramientas o integración adicionales' }], correctId: 'b', explanation: 'La inferencia por sí sola no implica acceso a Internet ni a fuentes externas.' },
+    ],
+    takeaways: ['El entrenamiento ajusta parámetros; la inferencia utiliza el modelo.', 'La entrada se tokeniza y la salida se genera progresivamente.', 'El contexto influye en la respuesta, pero no garantiza que sea correcta.'],
+  },
+  {
     id: 'tokens',
     slug: 'tokens-y-tokenizacion',
     number: 4,
@@ -202,7 +224,7 @@ export const blocks = [
 export const catalog: CatalogTopic[] = [
   { number: 1, title: 'Mapa de la IA', block: 1, minutes: 5, slug: 'mapa-de-la-ia' },
   { number: 2, title: '¿Qué es un LLM?', block: 1, minutes: 10, slug: 'que-es-un-llm' },
-  { number: 3, title: '¿Cómo funciona un LLM?', block: 1, minutes: 10 },
+  { number: 3, title: '¿Cómo funciona un LLM?', block: 1, minutes: 10, slug: 'como-funciona-un-llm' },
   { number: 4, title: 'Tokens y tokenización', block: 1, minutes: 8, slug: 'tokens-y-tokenizacion' },
   { number: 5, title: 'Prompts y ejemplos', block: 2, minutes: 12 },
   { number: 6, title: 'Contexto y memoria', block: 2, minutes: 8 },
