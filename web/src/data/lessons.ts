@@ -247,6 +247,28 @@ export const lessons: Lesson[] = [
     ],
     takeaways: ['Entrada y salida comparten un presupuesto limitado según el modelo y la aplicación.', 'La aplicación decide cómo manejar un historial que supera el límite.', 'La memoria externa debe recuperarse y aportarse cuando sea relevante.'],
   },
+  {
+    id: 'confiabilidad', slug: 'confiabilidad-y-alucinaciones', number: 7, block: 2, level: 'Básico', minutes: 8,
+    title: 'Confiabilidad y alucinaciones', question: '¿Cómo sé si una respuesta convincente está respaldada?',
+    description: 'Aprendé a reconocer afirmaciones sin respaldo y a contrastarlas con evidencia antes de actuar.',
+    keyIdea: 'Un modelo puede producir información incorrecta o no respaldada con apariencia convincente; la evidencia y la revisión son esenciales.',
+    labSlug: 'verificador-evidencias',
+    resources: [{ title: 'Introducción a los modelos de lenguaje · Google', url: 'https://developers.google.com/machine-learning/crash-course/llm', description: 'Incluye límites y problemas de los modelos de lenguaje (disponible en varios idiomas).' }],
+    steps: [
+      { id: 'definicion', kind: 'concept', eyebrow: '01 · La idea', title: 'Una respuesta fluida puede fallar', description: 'Una alucinación es una salida que presenta información incorrecta o no respaldada. El tono seguro y los detalles precisos no demuestran que una afirmación sea verdadera.', bullets: ['Puede inventar hechos, citas o relaciones.', 'También puede omitir incertidumbre o interpretar mal la pregunta.'], presenterNote: 'Pedir al público un ejemplo de afirmación plausible que necesitaría comprobar.' },
+      { id: 'analogia', kind: 'analogy', eyebrow: '02 · Analogía', title: 'Una respuesta sin consultar apuntes', description: 'Imaginá a alguien que responde con mucha seguridad sin revisar sus apuntes. Su seguridad no demuestra exactitud. La comparación es ilustrativa: un modelo no recuerda ni razona igual que una persona.' },
+      { id: 'proceso', kind: 'process', eyebrow: '03 · El recorrido', title: 'De la afirmación a la evidencia', description: 'Identificá afirmaciones verificables, buscá fuentes pertinentes y confiables, contrastá cada dato y señalá lo que sigue sin demostrarse.', bullets: ['Separá hechos de opiniones y supuestos.', 'Comprobá fecha, procedencia y alcance de la fuente.', 'Si falta evidencia, expresá incertidumbre en lugar de completar huecos.'], presenterNote: 'Una cita también necesita comprobarse: puede ser inexistente o no respaldar la afirmación.' },
+      { id: 'demo', kind: 'demo', eyebrow: '04 · Experimentá', title: 'Contrastá una respuesta', description: 'Elegí un caso ficticio, evaluá si la respuesta está respaldada y revelá la evidencia preparada.', presenterNote: 'Invitar al público a decidir antes de revelar la explicación.' },
+      { id: 'limites', kind: 'warning', eyebrow: '05 · Un límite importante', title: '¿Qué cambia la temperatura?', description: 'La temperatura es un parámetro de generación que modifica cómo se distribuyen las probabilidades entre posibles próximos tokens. Con temperatura baja se favorecen más las opciones que el modelo considera probables; con temperatura alta aumenta la posibilidad de elegir otras opciones.', bullets: ['Ejemplo ilustrativo: al completar «El cielo es…», una temperatura baja favorecería más «azul»; una más alta podría elegir otras continuaciones, como «gris» o «inmenso». Son ejemplos, no predicciones reales.', 'Una temperatura baja suele producir respuestas menos variadas; una alta puede aumentar la variedad. El efecto y los valores admitidos dependen del modelo y la configuración.', 'Temperatura baja no garantiza respuestas idénticas ni verdaderas; una alta tampoco implica necesariamente errores. Verificá los datos importantes.', 'Una fuente auténtica puede estar desactualizada o no apoyar la conclusión.'], presenterNote: 'Pedir varias continuaciones posibles y explicar que la temperatura modifica sus probabilidades de selección, no mide la confianza ni verifica hechos.' },
+      { id: 'repaso', kind: 'quiz', eyebrow: '06 · Repaso', title: '¿Qué está realmente respaldado?', description: 'Practicá la diferencia entre una respuesta convincente y una afirmación comprobada.', presenterNote: 'Pedir que expliquen por qué una fuente respalda o no cada afirmación.' },
+    ],
+    quiz: [
+      { id: 'conf-1', question: '¿Una respuesta segura y detallada garantiza exactitud?', options: [{ id: 'a', label: 'Sí, si incluye muchos detalles' }, { id: 'b', label: 'No, hay que contrastar las afirmaciones' }], correctId: 'b', explanation: 'Un texto convincente puede contener errores o información no respaldada.' },
+      { id: 'conf-2', question: '¿Qué conviene comprobar en una fuente?', options: [{ id: 'a', label: 'Su procedencia, fecha y relación con la afirmación' }, { id: 'b', label: 'Solo que tenga un título' }], correctId: 'a', explanation: 'Una fuente debe ser pertinente y respaldar el dato concreto, además de ser confiable y actual para la pregunta.' },
+      { id: 'conf-3', question: '¿Reducir la temperatura elimina las alucinaciones?', options: [{ id: 'a', label: 'No, puede reducir variación pero no garantiza verdad' }, { id: 'b', label: 'Sí, siempre' }], correctId: 'a', explanation: 'La temperatura modifica las probabilidades de selección de los próximos tokens. Una temperatura baja favorece las opciones más probables, pero no sustituye la comprobación de hechos.' },
+    ],
+    takeaways: ['La fluidez y la seguridad no prueban que una respuesta sea correcta.', 'Contrastá las afirmaciones con fuentes pertinentes y reconocé la incertidumbre.', 'Los parámetros de generación no reemplazan la verificación.'],
+  },
 ];
 
 export const lessonBySlug = (slug: string): Lesson | undefined => lessons.find((lesson) => lesson.slug === slug);
@@ -272,7 +294,7 @@ export const catalog: CatalogTopic[] = [
   { number: 4, title: 'Tokens y tokenización', block: 1, minutes: 8, slug: 'tokens-y-tokenizacion' },
   { number: 5, title: 'Prompts y ejemplos', block: 2, minutes: 12, slug: 'prompts-y-ejemplos' },
   { number: 6, title: 'Contexto y memoria', block: 2, minutes: 8, slug: 'contexto-y-memoria' },
-  { number: 7, title: 'Confiabilidad y alucinaciones', block: 2, minutes: 8 },
+  { number: 7, title: 'Confiabilidad y alucinaciones', block: 2, minutes: 8, slug: 'confiabilidad-y-alucinaciones' },
   { number: 8, title: 'Modelos y APIs', block: 2, minutes: 8 },
   { number: 9, title: 'Tools y function calling', block: 3, minutes: 10 },
   { number: 10, title: 'Agentes y workflows', block: 3, minutes: 10 },
