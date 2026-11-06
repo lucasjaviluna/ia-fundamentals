@@ -1,3 +1,4 @@
+import { Intro90Page } from '../pages/Intro90Page';
 import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet, Route, Routes } from 'react-router';
 import { HomePage, CoursePage, LessonPage, LabPage, GlossaryPage, NotFoundPage } from '../pages/Pages';
@@ -56,6 +57,7 @@ export function App() {
         <Route path="/glosario" element={<GlossaryPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
+      <Route path="/presentar/intro-90" element={<Intro90Page />} />
       <Route path="/presentar/:slug" element={<PresentationPage />} />
     </Routes>
   );

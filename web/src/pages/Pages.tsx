@@ -34,7 +34,7 @@ export function HomePage() {
             <div className="hero-tag"><span className="live-dot" /> APRENDÉ IA DESDE CERO</div>
             <h1>La inteligencia artificial, <span>sin complicaciones.</span></h1>
             <p>De los primeros tokens a los agentes. Conceptos claros, visualizaciones que podés tocar y ejemplos que realmente muestran cómo funcionan las cosas.</p>
-            <div className="hero-actions"><Link className="btn btn-primary btn-large" to="/curso">Explorar el curso <span aria-hidden="true">↗</span></Link><Link className="btn btn-muted btn-large" to="/presentar/que-es-un-llm">Comenzar presentación <span aria-hidden="true">▣</span></Link></div>
+            <div className="hero-actions"><Link className="btn btn-primary btn-large" to="/curso">Explorar el curso <span aria-hidden="true">↗</span></Link><Link className="btn btn-muted btn-large" to="/presentar/intro-90">Comenzar presentación <span aria-hidden="true">▣</span></Link></div>
             <div className="hero-numbers"><div><strong>16</strong><span>temas previstos</span></div><div><strong>{String(lessons.length).padStart(2, '0')}</strong><span>lecciones disponibles</span></div><div><strong>100%</strong><span>práctico y visual</span></div></div>
           </div>
           <div className="hero-art" aria-label="Mapa visual de los conceptos de IA">
@@ -74,6 +74,7 @@ export function CoursePage() {
       <Meta>MAPA DE APRENDIZAJE</Meta>
       <h1 className="page-title">Un concepto a la vez.</h1>
       <p className="page-lead">Cuatro bloques, 16 temas y un camino desde los fundamentos hasta la aplicación práctica. Las lecciones disponibles se irán incorporando de forma progresiva.</p>
+      <p><Link className="btn btn-primary" to="/presentar/intro-90">Iniciar recorrido de 90 minutos →</Link></p>
       <div className="course-progress"><span>Tu progreso en las lecciones disponibles</span><strong>{completed.filter((slug) => lessons.some((lesson) => lesson.slug === slug)).length} / {lessons.length}</strong><div className="course-track"><span style={{ width: `${Math.min(100, completed.length / lessons.length * 100)}%` }} /></div></div>
       <div className="block-list">
         {blocks.map((block) => (
@@ -110,7 +111,7 @@ export function LessonPage() {
   const nextLesson = lessons[currentIndex + 1];
   return (
     <div className="container lesson-layout">
-      <aside className="lesson-sidebar" aria-label="Temario disponible">
+      <aside className="lesson-sidebar" aria-label="Temario disponible" tabIndex={0}>
         <Link className="sidebar-back" to="/curso">← Todas las lecciones</Link>
         <Meta>BLOQUE {String(lesson.block).padStart(2, '0')} · {blocks.find((block) => block.id === lesson.block)?.name.toUpperCase()}</Meta>
         <nav className="side-lessons">{lessons.map((item) => <Link key={item.id} className={`side-lesson ${item.id === lesson.id ? 'active' : ''}`} to={`/curso/${item.slug}`} onClick={(event) => { if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return; if (item.slug === slug) contentRef.current?.scrollIntoView({ block: 'start', behavior: 'instant' }); else pendingScroll.current = item.slug; }}><span>{String(item.number).padStart(2, '0')}</span>{item.title}{completed.includes(item.slug) && <span aria-label="Completada">✓</span>}</Link>)}</nav>

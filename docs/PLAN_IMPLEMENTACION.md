@@ -338,7 +338,7 @@ Cada directorio incluirá cuando se implemente:
 
 - [x] Incorporar las 16 lecciones del catálogo.
 - [ ] Desarrollar las demos de clasificación de IA, prompting, contexto, tools/agentes, Skills, MCP y RAG, más seguridad y evaluación.
-- [ ] Implementar recorrido `intro-90` como selección de pasos del catálogo, con progreso temporal/navegación clara.
+- [x] Implementar recorrido `intro-90` como selección de pasos del catálogo, con tiempos orientativos y navegación por segmentos.
 - [ ] Añadir notas de presentador, ejemplos cotidianos, respuestas razonadas y conclusiones por tema.
 - [ ] Mantener versiones básicas y profundizaciones técnicas colapsables.
 - [ ] Asegurar que todas las demos críticas funcionan sin una API externa.
@@ -454,7 +454,7 @@ Cada directorio incluirá cuando se implemente:
 | Lección 08 — Modelos, APIs y multimodalidad | **Implementada** |
 | Lecciones 13 y 14 — RAG y seguridad | **Implementadas** |
 | Lecciones 15 y 16 — Evaluación y desarrollo | **Implementadas** |
-| Recorrido integrado de 90 minutos | **Pendiente** |
+| Recorrido integrado de 90 minutos | **Implementado; ensayo pendiente** |
 | Directorios `labs/` con código y soluciones | **Pendientes** |
 | Test e2e y publicación validada | **Pendientes** |
 
