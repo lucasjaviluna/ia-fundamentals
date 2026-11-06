@@ -4,7 +4,7 @@ Plataforma educativa interactiva en español para enseñar fundamentos de IA con
 
 ## Estado
 
-**Entrega 1 — MVP piloto.** Se implementan dos lecciones completas: **¿Qué es un LLM?** y **Tokens y tokenización**. Los otros 14 temas figuran como próximos contenidos, sin enlaces engañosos ni simuladores falsamente presentados como IA real.
+El catálogo incluye 16 lecciones y un recorrido introductorio de 90 minutos. El [taller técnico](labs/README.md) comienza con una práctica ejecutable de tokenización; las demás prácticas están pendientes.
 
 ## Requisitos
 
@@ -30,7 +30,7 @@ npm run test:watch  # Vitest interactivo
 ## Experiencias
 
 - **Explorar**: `/curso`. Elegir una lección, interactuar y responder al repaso.
-- **Presentar**: desde una lección, botón «Modo presentación». Navegación con flechas, Esc para volver y F para pantalla completa; los atajos no interfieren con campos editables. Las notas del presentador se mantienen cerradas por defecto.
+- **Presentar**: recorrido `/presentar/intro-90` o presentación de cada lección. Navegación con flechas, Esc para volver y F para pantalla completa; los atajos no interfieren con campos editables. Las notas del presentador se mantienen cerradas por defecto.
 - **Laboratorios**: `/labs/next-token` y `/labs/tokenizer`, accesibles desde las lecciones.
 - **Glosario**: `/glosario` con conceptos esenciales.
 
@@ -49,8 +49,8 @@ web/
   src/
     app/             # rutas y navegación
     components/      # secciones, quiz, cabecera
-    data/            # fuente tipada de las dos lecciones piloto
-    demos/           # simulador y tokenizador reales/ilustrativos
+    data/            # lecciones y recorrido tipados
+    demos/           # laboratorios reales e ilustrativos
     pages/           # portada, curso, lección, presentación, labs
     test/            # configuración de tests
 docs/
@@ -62,7 +62,7 @@ docs/
 
 ## Diseño de contenido
 
-Las dos lecciones piloto se modelan mediante `Lesson` en `web/src/data/lessons.ts`. **El modo lectura y el modo presentación consumen exactamente los mismos pasos, ejemplos, preguntas y resúmenes**. La integración de MDX para profundizaciones largas queda aplazada: se prioriza un modelo tipado y pequeño antes de introducir una capa de contenido adicional.
+Las lecciones se modelan mediante el tipo `Lesson` en `web/src/data/lessons.ts` y archivos de datos asociados. **El modo lectura y el modo presentación consumen exactamente los mismos pasos, ejemplos, preguntas y resúmenes**. La integración de MDX para profundizaciones largas queda aplazada: se prioriza un modelo tipado y pequeño antes de introducir una capa de contenido adicional.
 
 ## Documentación
 
@@ -77,4 +77,4 @@ Es una SPA estática. La plataforma que la aloje debe redirigir rutas desconocid
 
 ## Próximos pasos
 
-Completar el recorrido introductorio de 90 minutos, incorporar demos de prompts, tools/agentes, skills, MCP y RAG, y luego crear los ejercicios Node.js con soluciones.
+Desarrollar las prácticas restantes del taller, completar la revisión de accesibilidad y validar el despliegue.

@@ -267,11 +267,11 @@ A futuro se agregará un `LearningPath` (`intro-90` y `completo`) con selección
 
 ## 10. Repositorio práctico: ejercicios, soluciones y tests
 
-**Objetivo:** permitir que las explicaciones visuales desemboquen en código ejecutable. Los siguientes doce directorios son **planificados; todavía no están implementados**.
+**Objetivo:** permitir que las explicaciones visuales desemboquen en código ejecutable. La primera práctica está implementada; las once restantes están planificadas.
 
 | Práctica | Objetivo concreto | Resultado esperado |
 |---|---|---|
-| `01-tokenization` | Tokenizar frases y comparar variaciones | CLI que imprime IDs/conteos con tests |
+| [`01-tokenization`](../labs/01-tokenization/README.md) | Tokenizar frases y comparar variaciones | **Implementado:** CLI, ejercicio, solución y tests |
 | `02-prompt-engineering` | Construir prompt con rol, contexto, ejemplos y JSON esperado | Dos casos comparados con evaluación simple |
 | `03-llm-api` | Hacer una solicitud a un modelo desde Node.js | Script configurable con secretos fuera del código |
 | `04-tool-calling` | Declarar y ejecutar `getOrderStatus(id)` | Herramienta que devuelve datos ficticios |
@@ -342,7 +342,7 @@ Cada directorio incluirá cuando se implemente:
 - [ ] Añadir notas de presentador, ejemplos cotidianos, respuestas razonadas y conclusiones por tema.
 - [ ] Mantener versiones básicas y profundizaciones técnicas colapsables.
 - [ ] Asegurar que todas las demos críticas funcionan sin una API externa.
-- [ ] Ensayar la charla completa; ajustar transiciones para que no se convierta en lectura de diapositivas.
+- [x] Charla validada por el usuario. El ritmo, las transiciones y el contenido podrán afinarse en iteraciones posteriores.
 
 **Criterios de cierre:** recorrido ejecutable de 90 minutos, contenido comprensible, demo en cada bloque, quizzes y resumen. Las secciones pendientes no deberán mostrarse como disponibles sin contenido real.
 
@@ -380,7 +380,7 @@ Cada directorio incluirá cuando se implemente:
 3. Incorporar `06` y `07` (contexto y confiabilidad).
 4. Agregar `09`, `10`, `11` y `12` como secuencia «tools → agentes → Skills → MCP».
 5. Completar `13`, `14`, `15` y `16`, más APIs/multimodalidad del `08`.
-6. Configurar `intro-90` y ensayar su ritmo.
+6. Mantener `intro-90` validado y afinar su ritmo y contenido en futuras iteraciones.
 7. Comenzar E3 sin esperar a crear una plataforma compleja de ejecución remota.
 
 ## 12. Criterios de aceptación transversales
@@ -454,8 +454,8 @@ Cada directorio incluirá cuando se implemente:
 | Lección 08 — Modelos, APIs y multimodalidad | **Implementada** |
 | Lecciones 13 y 14 — RAG y seguridad | **Implementadas** |
 | Lecciones 15 y 16 — Evaluación y desarrollo | **Implementadas** |
-| Recorrido integrado de 90 minutos | **Implementado; ensayo pendiente** |
-| Directorios `labs/` con código y soluciones | **Pendientes** |
+| Recorrido integrado de 90 minutos | **Implementado y validado por el usuario; mejoras futuras previstas** |
+| Taller práctico `labs/` | **Práctica 01 implementada; prácticas 02–12 pendientes** |
 | Test e2e y publicación validada | **Pendientes** |
 
 **Último hito técnico verificado:** commit `e9075f8`; [workflow exitoso](https://github.com/lucasjaviluna/ia-fundamentals/actions/runs/41958459514). Este plan no afirma que exista un despliegue público de la web.
@@ -478,4 +478,4 @@ Cada directorio incluirá cuando se implemente:
 
 ---
 
-**Próxima decisión operativa:** completar la validación pedagógica y de accesibilidad de la Entrega 1 y continuar implementando incrementalmente el recorrido introductorio, manteniendo separación entre contenido básico y profundizaciones. No es necesario diseñar una nueva arquitectura antes de seguir añadiendo lecciones.
+**Próxima decisión operativa:** continuar con el taller técnico y la revisión de accesibilidad. La charla fue validada por el usuario y podrá afinarse más adelante.

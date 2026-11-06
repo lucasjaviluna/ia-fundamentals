@@ -1,0 +1,18 @@
+{
+  "name": "ia-fundamentals-lab-tokenization",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "start": "node starter/cli.mjs",
+    "solution": "node solution/cli.mjs",
+    "test": "node --test tests/solution.test.mjs",
+    "test:starter": "node --test tests/starter.test.mjs"
+  },
+  "dependencies": {
+    "js-tiktoken": "1.0.21"
+  }
+}
