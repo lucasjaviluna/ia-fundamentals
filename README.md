@@ -4,7 +4,7 @@ Plataforma educativa interactiva en español para enseñar fundamentos de IA con
 
 ## Estado
 
-El catálogo incluye 16 lecciones y un recorrido introductorio de 90 minutos. El [taller técnico](labs/README.md) comienza con una práctica ejecutable de tokenización; las demás prácticas están pendientes.
+El catálogo incluye 16 lecciones y un recorrido introductorio de 90 minutos. El [taller técnico](labs/README.md) incluye prácticas de tokenización y prompts; las demás prácticas están pendientes.
 
 ## Requisitos
 

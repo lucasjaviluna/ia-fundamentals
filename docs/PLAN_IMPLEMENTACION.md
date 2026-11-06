@@ -267,12 +267,12 @@ A futuro se agregará un `LearningPath` (`intro-90` y `completo`) con selección
 
 ## 10. Repositorio práctico: ejercicios, soluciones y tests
 
-**Objetivo:** permitir que las explicaciones visuales desemboquen en código ejecutable. La primera práctica está implementada; las once restantes están planificadas.
+**Objetivo:** permitir que las explicaciones visuales desemboquen en código ejecutable. Las prácticas 01 y 02 están implementadas; las diez restantes están planificadas.
 
 | Práctica | Objetivo concreto | Resultado esperado |
 |---|---|---|
 | [`01-tokenization`](../labs/01-tokenization/README.md) | Tokenizar frases y comparar variaciones | **Implementado:** CLI, ejercicio, solución y tests |
-| `02-prompt-engineering` | Construir prompt con rol, contexto, ejemplos y JSON esperado | Dos casos comparados con evaluación simple |
+| [`02-prompt-engineering`](../labs/02-prompt-engineering/README.md) | Construir prompt con rol, contexto, ejemplos y JSON esperado | **Implementado:** comparación en vivo, evaluación local, ejercicio y solución |
 | `03-llm-api` | Hacer una solicitud a un modelo desde Node.js | Script configurable con secretos fuera del código |
 | `04-tool-calling` | Declarar y ejecutar `getOrderStatus(id)` | Herramienta que devuelve datos ficticios |
 | `05-agent-loop` | Ejecutar acciones con límite de pasos | Bucle con estado, trazas y aprobación humana |
@@ -455,7 +455,7 @@ Cada directorio incluirá cuando se implemente:
 | Lecciones 13 y 14 — RAG y seguridad | **Implementadas** |
 | Lecciones 15 y 16 — Evaluación y desarrollo | **Implementadas** |
 | Recorrido integrado de 90 minutos | **Implementado y validado por el usuario; mejoras futuras previstas** |
-| Taller práctico `labs/` | **Práctica 01 implementada; prácticas 02–12 pendientes** |
+| Taller práctico `labs/` | **Prácticas 01–02 implementadas; prácticas 03–12 pendientes** |
 | Test e2e y publicación validada | **Pendientes** |
 
 **Último hito técnico verificado:** commit `e9075f8`; [workflow exitoso](https://github.com/lucasjaviluna/ia-fundamentals/actions/runs/41958459514). Este plan no afirma que exista un despliegue público de la web.

@@ -1,0 +1,20 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { buildPrompts, evaluate } from '../solution/prompts.mjs';
+import { verify } from './contract.mjs';
+test('construye prompts y evalúa JSON', () => verify(buildPrompts, evaluate));
+test('CLI comprueba archivos y comunica errores', () => {
+ const cli = fileURLToPath(new URL('../solution/cli.mjs', import.meta.url));
+ const fixture = fileURLToPath(new URL('../fixtures/respuesta-ejemplo.json', import.meta.url));
+ const bad = fileURLToPath(new URL('../fixtures/respuesta-incorrecta.json', import.meta.url));
+ const run = (...args) => spawnSync(process.execPath, [cli, ...args], {encoding:'utf8'});
+ const output = run('prompts').stdout;
+ assert.match(output, /PROMPT ABIERTO/);
+ assert.match(output, /PROMPT ESTRUCTURADO/);
+ assert.doesNotMatch(output, /# IA Fundamentals/);
+ assert.equal(run('check', fixture).status, 0);
+ assert.equal(run('check', bad).status, 1);
+ assert.equal(run('check', 'no-existe.json').status, 1);
+});
