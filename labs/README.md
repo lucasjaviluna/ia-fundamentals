@@ -8,6 +8,7 @@ Prácticas cortas e independientes para pasar de los conceptos de la web a códi
 | [02 · Prompt engineering](02-prompt-engineering/README.md) | Comparar prompts en vivo y comprobar respuestas | Disponible |
 | [03 · API de modelo](03-llm-api/README.md) | Solicitudes y respuestas, simulación y modo real opcional | Disponible |
 | [04 · Skills para TypeScript](04-skills-typescript/README.md) | Crear, validar y aplicar un skill de revisión de API | Disponible |
-| 05–12 · Herramientas, agentes, MCP, RAG y evaluación | Ver [plan integral](../docs/PLAN_IMPLEMENTACION.md) | Pendientes |
+| [05 · Tools y agentes](05-tools-and-agents/README.md) | Planificar, ejecutar, observar y validar una tool call | Disponible |
+| 06–12 · MCP, RAG, seguridad y evaluación | Ver [plan integral](../docs/PLAN_IMPLEMENTACION.md) | Pendientes |
 
 Comenzá por la práctica 01; no se necesitan credenciales. Los tiempos son orientativos y pueden ajustarse durante el taller.
