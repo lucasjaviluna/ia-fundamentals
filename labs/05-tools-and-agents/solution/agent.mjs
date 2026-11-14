@@ -8,7 +8,7 @@ export function createTools() {
     getOrderStatus: {
       description: "Obtiene el estado de un pedido por su código.",
       execute({ orderId }) {
-        if (typeof orderId !== "string" || !/^[A-Z]-\\d{3}$/.test(orderId)) {
+        if (typeof orderId !== "string" || !/^[A-Z]-\d{3}$/.test(orderId)) {
           throw new Error("orderId debe tener el formato A-000.");
         }
 
