@@ -1,0 +1,12 @@
+{
+  "name": "ia-fundamentals-lab-tools-and-agents",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20.19.0" },
+  "scripts": {
+    "demo": "node solution/cli.mjs",
+    "test": "node --test tests/solution.test.mjs",
+    "test:starter": "node --test tests/starter.test.mjs"
+  }
+}
